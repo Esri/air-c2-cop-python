@@ -1,0 +1,80 @@
+###########################################################################
+# Airspace Management Tools
+# -------------------------
+#
+# Shaun Nicholson, Esri UK, May 2015
+# 
+###########################################################################
+
+1) Overview
+-----------
+
+These folders include scripts and related content for processing ACO and ATO
+source text files into geographic data suitable for presentation in ArcGIS.
+
+The source code includes the following content:
+
+data      - geographic data
+docs      - related documentation
+files     - source ACO, ATO files to be processed
+logs      - script log files
+maps      - map documents
+output    - debug / log output and ACO / ATO json data
+tools     - processing toolbox and related scripts
+arcgispro - ArcGIS Pro project
+
+2) Running
+----------
+
+To process an ACO:
+
+1) Open ArcCatalog.
+2) Open the AirspaceManagementTools.tbx in the above tools folder.
+3) Specify parameters:
+         Source File: the source ACO file to be processed (found in files folder).
+         Target Workspace: the target workspace containing the feature classes to write the ACO to.
+         Log Level: (Optional) - select DEBUG for extended diagnostics
+
+         Source File: select the file in \files\ACO.aco
+         Target Workspace: select FGDB in \files\ACOATOData.gdb
+4) ACO JSON data is output to the output folder.
+5) Open the maps/map.mxd to view the processed ACO data.
+
+To delete ACOs run the DeleteACORecord.  By default ALL ACOs will be deleted.
+
+To process an ATO follow the same steps as above but select the ProcessATO tool.
+
+To delete ATOs run the DeleteATORecord.  By default ALL ATOs will be deleted.
+
+3) Scripts Overview
+-------------------
+
+Each tool has a corresponding top level .py file:
+
+ProcessACO - tools\scripts\amt_process_aco.py
+ProcessATO - tools\scripts\amt_process_ato.py
+
+The overall processes are split into 3 key areas:
+
+1) Reader (tools\scripts\esriuk\airspacemanagement\reader.py)
+2) Parser (tools\scripts\esriuk\airspacemanagement\parser.py)
+3) Writer (tools\scripts\esriuk\airspacemanagement\writer.py)
+
+- A set of readers parse the overall '//' delimeted input file into a set of 'records' (records delimited by the //).
+- ACOReader, ATOReader and related classes control the overall file processing logic.
+- Reader classes delegate to the parser.py methods for parsing individual records into corresponding JSON data.
+- Writer classes write the JSON data into the FGDB.
+
+- The ACO / ATO files are processed into a JSON data structure.
+- This JSON data structure is then written into the geodatase by the writer classes.
+- The JSON data structure is also written to the output folder for convenience / diagnostics.
+
+To prevent output to the logs folder change the setting in:
+
+\tools\scripts\esriuk\config\settings.py   LOG_ENABLE_FILE = False
+
+4) To Do
+--------
+
+1) Add vertical co-ords to feature classes.
+2) Add z-values to points based on MIN_HEIGHT
