@@ -396,13 +396,7 @@ class ProcessATOHeader:
                 self._json['MSGID'] = airspacemanagement.parser.parseMSGID(record)
             elif record.startswith('TIMEFRAM'):
                 self._json['TIMEFRAM'] = airspacemanagement.parser._parseBlockTIMEFRAM(record)
-            #elif record.startswith('ACOID'):
-            #    self._parseBlockACOID(record)
-            #elif record.startswith('GEODATUM'):
-            #    self._parseBlockGEODATUM(record)
-            #elif record.startswith('PERIOD'):
-            #    self._parseBlockPERIOD(record)
-
+        
         utils.common.OutputMessage(logging.DEBUG, "{0} ProcessATOHeader.processBlock() - Finish".format(time.ctime()))
 
         pass
@@ -414,7 +408,7 @@ class ProcessATOHeader:
         return self._getDate(self._json['TIMEFRAM']['start']).year
 
     def _getDate(self, timeString):
-        return datetime.strptime(timeString, '%d-%m-%Y %H:%M')
+        return datetime.strptime(timeString, "%Y/%m/%d %H:%M:00")
 
 ###########################################################################
 # Class to process an ATO goemetry block.
@@ -424,37 +418,38 @@ class ProcessATOHeader:
 ###########################################################################
 class ProcessATOBlocks:
 
-    _json = { 'taskCountries' : []}
+    _json = { 'Missions' : []}
 
     def __init__(self):
         pass
 
     def processBlock(self, records, year):
-        utils.common.OutputMessage(logging.DEBUG, "{0} ProcessATOBlocks.processBlock() - Start".format(time.ctime()))
+        utils.common.OutputMessage(logging.DEBUG, "{0} ProcessSingleBlock.processBlock() - Start".format(time.ctime()))
 
-        taskCountry  = None
-        taskUnit     = None
+        taskGroup  = {}
+        taskUnit     = []
 
         currentRecordIndex = -1
-        while currentRecordIndex < len(records):
+        while currentRecordIndex < len(records) -1:
             currentRecordIndex += 1
+            
             if currentRecordIndex >= len(records):
                 break
 
-            if records[currentRecordIndex].startswith('TSKCNTRY'):
-                taskCountry = airspacemanagement.parser.parseTSKCNTRY(records[currentRecordIndex])
-                taskCountry['taskUnits'] = []
-                self._json['taskCountries'].append(taskCountry)
+            if records[currentRecordIndex].startswith('TSKGRPG'):
+                taskGroup = airspacemanagement.parser.parseTSKGRPG(records[currentRecordIndex])
+                taskGroup['taskUnit'] = {}
+                self._json['Missions'].append(taskGroup)
             elif records[currentRecordIndex].startswith('TASKUNIT'):
                 taskUnit = airspacemanagement.parser.parseTASKUNIT(records[currentRecordIndex])
                 taskUnit['tasks'] = []
-                taskCountry['taskUnits'].append(taskUnit)
+                taskGroup['taskUnit'] = taskUnit
             elif records[currentRecordIndex].startswith('AMSNDAT'):
                 taskJson = self._processBlock(currentRecordIndex, records, year)
-                taskJson['SORTORDER'] = len(taskUnit['tasks']) + 1
+                #taskJson['SORTORDER'] = len(taskUnit['tasks']) + 1
                 taskUnit['tasks'].append(taskJson)
 
-        utils.common.OutputMessage(logging.DEBUG, "{0} ProcessATOBlocks.processBlock() - Finish".format(time.ctime()))
+        utils.common.OutputMessage(logging.DEBUG, "{0} ProcessSingleBlock.processBlock() - Finish".format(time.ctime()))
 
         pass
 
@@ -462,39 +457,36 @@ class ProcessATOBlocks:
         return self._json
 
     def _processBlock(self, currentRecordIndex, records, year):
-        utils.common.OutputMessage(logging.DEBUG, "{0} ProcessATOBlocks._processBlock()".format(time.ctime()))
-
+        utils.common.OutputMessage(logging.DEBUG, "{0} ProcessATOBlocks._processBlock() - Start".format(time.ctime()))
+        
         json = {}
 
         if records[currentRecordIndex].startswith('AMSNDAT'):
             json['AMSNDAT'] = airspacemanagement.parser.parseAMSNDAT(records[currentRecordIndex])
-            json['AMSNDAT']['SORTORDER'] = len(self._json) + 1
-            json['AMSNDAT']['location'] = []
-     
+            json['AMSNDAT']['GTGTLOC'] = []
+            json['AMSNDAT']['route'] = []
+            
         processBlock = True
-        while processBlock == True:
+        while processBlock == True and currentRecordIndex < len(records) -1:            
             record = records[currentRecordIndex + 1]
-            if record.startswith('AMSNLOC'):
-                json['AMSNDAT']['location'] += airspacemanagement.parser.parseAMSNLOC(record, year)
-                currentRecordIndex += 1
-            elif record.startswith('MSNACFT'):
+            if record.startswith('MSNACFT'):
                 json['AMSNDAT']['aircraft'] = airspacemanagement.parser.parseMSNACFT(record)
                 currentRecordIndex += 1
                 pass
+            elif record.startswith('ROUTE'):
+                json['AMSNDAT']['route'] = airspacemanagement.parser.parseROUTE(record)
+                currentRecordIndex += 1
+                pass
             elif record.startswith('GTGTLOC'):
-                tempJson = airspacemanagement.parser.parseGTGTLOC(record)
-                tempJson['SORTORDER'] = len(json['AMSNDAT']['location']) + 1
-                json['AMSNDAT']['location'].append(tempJson)
+                json['AMSNDAT']['GTGTLOC'] = airspacemanagement.parser.parseGTGTLOC(record,year)
                 currentRecordIndex += 1
                 pass
-            elif record.startswith('AMPN'):
-                currentRecordIndex += 1
-                pass
-            elif record.startswith('NARR'):
-                currentRecordIndex += 1
-                pass
-            else:
+            elif record.startswith('AMSNDAT'):
                 processBlock = False
-
+            else:
+                utils.common.OutputMessage(logging.DEBUG, "The record " + record + " does not start with a segment that is recognised")
+                currentRecordIndex += 1
+                
+        utils.common.OutputMessage(logging.DEBUG, "{0} ProcessATOBlocks._processBlock() - Finish".format(time.ctime()))
         return json
 

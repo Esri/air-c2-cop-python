@@ -96,11 +96,14 @@ class RecordIterator:
 ###########################################################################
 def parseDate(dateString):
     s = dateString.upper()
-    if s[-1].isdigit() == False:
-        return datetime.strptime(s, '%d%H%MZ%b')
+    if(len(s) > 1):
+    #Handle empty string or - for no value
+        if s[-1].isdigit() == False:
+            return datetime.strptime(s, '%d%H%MZ%b')
+        else:
+            return datetime.strptime(s, '%d%H%MZ%b%Y')
     else:
-        return datetime.strptime(s, '%d%H%MZ%b%Y')
-
+        return datetime.strptime('010001ZJAN2001', '%d%H%MZ%b%Y')
 ###########################################################################
 # Parse a date in string format to a real datetime.
 #
@@ -122,50 +125,65 @@ def getDateString(timeValue):
 def parseLatLong(llValue,height):
 
     v = llValue.upper()
-    isS = False
-    isM = False
-    isD = False
-    if v.startswith('LATS:') == True:
-        v = v.replace('LATS:', '')
-        isS = True
-    if v.startswith('LATM:') == True:
-        v = v.replace('LATM:', '')
-        isM = True
-    if v.startswith('DMPIT:') == True:
-        v = v.replace('DMPIT:', '')
-        isD = True
-    if isS == True:
-        latD = v[0:2]
-        latM = v[2:4]
-        latS = v[4:6]
-        latC = v[6:7]
-        lonD = v[7:10]
-        lonM = v[10:12]
-        lonS = v[12:14]
-        lonC = v[14:15]
-    if isM == True:
-        latD = v[0:2]
-        latM = v[2:4]
-        latS = 0
-        latC = v[4:5]
-        lonD = v[5:8]
-        lonM = v[8:10]
-        lonS = 0
-        lonC = v[10:11]
-    if isD == True:
-        latD = v[0:2]
-        latM = v[2:4]
-        latS = v[5:9]
-        latC = v[9:10]
-        lonD = v[10:13]
-        lonM = v[13:15]
-        lonS = v[16:20]
-        lonC = v[20:21]
-
-    dd = [convertDecimalDegrees(lonD, lonM, lonS, lonC), convertDecimalDegrees(latD, latM, latS, latC), height]
-    
-    return dd
-
+    if len(v) > 1:
+        isLATS = False
+        isLATM = False
+        isDMPIT = False
+        isDMPIK = False
+        if v.startswith('LATS:') == True:
+            v = v.replace('LATS:', '')
+            isLATS = True
+        if v.startswith('LATM:') == True:
+            v = v.replace('LATM:', '')
+            isLATM = True
+        if v.startswith('DMPIT:') == True:
+            v = v.replace('DMPIT:', '')
+            isDMPIT = True
+        if v.startswith('DMPIK:') == True:
+            v = v.replace('DMPIK:', '')
+            isDMPIK = True
+        if isLATS == True:
+            latD = v[0:2]
+            latM = v[2:4]
+            latS = v[4:6]
+            latC = v[6:7]
+            lonD = v[7:10]
+            lonM = v[10:12]
+            lonS = v[12:14]
+            lonC = v[14:15]
+        if isLATM == True:
+            latD = v[0:2]
+            latM = v[2:4]
+            latS = 0
+            latC = v[4:5]
+            lonD = v[5:8]
+            lonM = v[8:10]
+            lonS = 0
+            lonC = v[10:11]
+        if isDMPIT == True:
+            latD = v[0:2]
+            latM = v[2:4]
+            latS = float(v[5:9]) * 0.06
+            latC = v[9:10]
+            lonD = v[10:13]
+            lonM = v[13:15]
+            lonS = float(v[16:20]) * 0.06
+            lonC = v[20:21]
+        if isDMPIK == True:
+            latD = v[0:2]
+            latM = v[2:4]
+            latS = float(v[5:8]) * 0.06
+            latC = v[8:9]
+            lonD = v[9:12]
+            lonM = v[12:14]
+            lonS = float(v[15:18]) * 0.06
+            lonC = v[18:19]
+            
+        dd = [convertDecimalDegrees(lonD, lonM, lonS, lonC), convertDecimalDegrees(latD, latM, latS, latC), height]
+        
+        return dd
+    else:
+        return [0,0]
 ###########################################################################
 # Convert degress minutes seconds into decimal degrees.
 #
@@ -255,9 +273,7 @@ def parseHeight(value):
     else:        
         min = re.sub(r'\D', '', v[0])
         max = re.sub(r'\D', '', v[1])
-
-    utils.common.OutputMessage(logging.DEBUG, "{0} parseHeight() - {1}:{2}".format(time.ctime(), min, max))
-
+    
     if len(min) != 0: json['min_height'] = float(min) * 100
     if len(max) != 0: json['max_height'] = float(max) * 100
 
@@ -534,88 +550,98 @@ def createBufferedPoint(x, y, distance, units, sr):
 
 ############################################################################
 #
+# Function to check if a string value is a valid float
+#
+###########################################################################    
+def isfloat(value):
+  try:
+    float(value)
+    return True
+  except:
+    return False
+
+############################################################################
+#
+# Function to check if a string value is a holder for an optional field i.e. '-'
+#
+###########################################################################    
+def isNotSpacer(value):
+  if value != '-':
+    return True
+  else:
+    return False
+    
+
+###########################################################################
+# ATO FUNCTIONS
+#
+###########################################################################    
+
+    
+###########################################################################
+# Parse a TSKGRPG block, assumes block is in the form:
+# TSKGRPG/UNIT/UKF2303//
+#
+###########################################################################
+def parseTSKGRPG(record):
+    utils.common.OutputMessage(logging.DEBUG, "{0} parseTSKGRPG()".format(time.ctime()))
+    items = record.split('/')
+    return { 'TaskGroupingCategory': items[1] }
+
+###########################################################################
+# Parse a TASKUNIT block, assumes block is in the form:
+# TASKUNIT/NATIONALITY/ARMED SERVICE CODE/UNIT ID/UNIT LOCATION/UNIT ADDRESS/UNIT REFERENCE
+# TASKUNIT/US/F/UIC:USN7610/-/-//
+###########################################################################
+def parseTASKUNIT(record):
+    utils.common.OutputMessage(logging.DEBUG, "{0} parseTASKUNIT()".format(time.ctime()))
+    items = record.split('/')
+    items.pop(0)
+    
+    TASKUNITkeys = ['Nationality', 'ArmedServiceCode', 'UnitID', 'UnitLocation', 'UnitAddress', 'UnitRef', 'Comments']    
+    
+    TASKUNITvalues = []
+    
+    for i in items:
+        TASKUNITvalues.append(i)
+    
+    TASKUNIT = dict(zip(TASKUNITkeys,TASKUNITvalues))    
+    
+    #Remove leading characters from UnitID
+    TASKUNIT['UnitID'] = TASKUNIT['UnitID'].split(":")[1]
+    
+    return TASKUNIT
+    
+############################################################################
+# Parse a AMSNDAT block, assumes block is in the form:
 # AMSNDAT/15JW4002/-/-/-/ASW/-/-/DEPLOC:EGQS/ARRLOC:EGQS//
 # AMSNDAT/MISSIONNO/AMCNO/PACKAGEID/COMMANDER/1STMISSIONTYPE/2NDMISSIONYPE/DEPARTURELOC/RECOVERYLOC//
 #
 ###########################################################################
 def parseAMSNDAT(record):
     utils.common.OutputMessage(logging.DEBUG, "{0} parseAMSNDAT()".format(time.ctime()))
-    items = record.split('/')
-    return { 'title': items[1], 'missionno': items[1], 'packageId': items[3], 'commander': items[4], 'missionType': items[5], 'departureLocation': items[7], 'recoveryLocation': items[8] }
-
-###########################################################################
-# Parse a parseAMSNLOC block into Esri geometry JSON.
-# Assume the POLYGON block is in the form:
-# AMSNLOC/141230ZAPR/141630ZAPR/ISLAY/150/1/LATM:5720N01000W/LATM:5720N00720W/LATM:5650N00720W/LATM:5650N00500W/LATM:5540N00500W/LATM:5540N01000W//
-#
-###########################################################################
-def parseAMSNLOC(record, year):
-    utils.common.OutputMessage(logging.DEBUG, "{0} parseAMSNLOC()".format(time.ctime()))
-
-    items = record.split('/')
-
-    startDate   = parseDate(items[1] + str(year))
-    stopDate    = parseDate(items[2] + str(year))
-    start       = getDateString(startDate)
-    stop        = getDateString(stopDate)
-    id          = items[3]
-    height      = 0
-    if len(items) > 7: height = float(items[4]) * 100
-
-    #json['geometry'] = {}
-    #json['geometry']['spatialReference'] = {"wkid" : 4326}
-    #json['geometry']['paths'] = [[]]
-
-    #for i in items:
-    #    if i.startswith('LATM') == True:
-    #        json['geometry']['paths'][0].append(parseLatLong(i))
-    #        pass
-
-    json = []
+    items = record.split('/')    
+    items.pop(0)
+    
+    AMSNDATkeys = ['residualMissionIndicator', 'missionNo', 'airliftMSN', 'packageId', 'commander', 'COMAO', 'primaryMissionType', 'secondaryMissionType', 'alertStatus', 'missionRole', 'departureLocation', 'departureTime', 'recoveryLocation', 'recoveryTime']    
+      
+    AMSNDATvalues = []
+    
     for i in items:
-        if i.startswith('LATM') == True:
+        AMSNDATvalues.append(i)
+    
+    AMSNDAT = dict(zip(AMSNDATkeys,AMSNDATvalues)) 
+
+    if isNotSpacer(AMSNDAT['departureLocation']):
+        AMSNDAT['departureLocation'] = AMSNDAT['departureLocation'].split(":")[1]
+    
+    if isNotSpacer(AMSNDAT['recoveryLocation']):
+        AMSNDAT['recoveryLocation'] = AMSNDAT['recoveryLocation'].split(":")[1]
             
-            location = parseLatLong(i)
-            geoJson = {}
-            geoJson['type']    = 'AMSNLOC'
-            geoJson['id']      = id
-            geoJson['start']   = start
-            geoJson['stop']    = stop
-            geoJson['height']  = height
-            geoJson['geometry'] = {}
-            geoJson['geometry']['spatialReference'] = {"wkid" : 4326}
-            geoJson['geometry']['x'] = location[0]
-            geoJson['geometry']['y'] = location[1]
-            geoJson['geometry']['z'] = height * 0.3048
-            geoJson['SORTORDER'] = len(json) + 1
-
-            json.append(geoJson)
-            pass
-            
-    return json
-
-###########################################################################
-# Parse a TASKUNIT block, assumes block is in the form:
-# TASKUNIT/BEN0001/ICAO:LEOP/BNS//
-#
-###########################################################################
-def parseTASKUNIT(record):
-    utils.common.OutputMessage(logging.DEBUG, "{0} parseTASKUNIT()".format(time.ctime()))
-    items = record.split('/')
-    return { 'taskUnit': items[1], 'location': items[2] }
-
-###########################################################################
-# Parse a TSKCNTRY block, assumes block is in the form:
-# TSKCNTRY/SP//
-#
-###########################################################################
-def parseTSKCNTRY(record):
-    utils.common.OutputMessage(logging.DEBUG, "{0} parseTSKCNTRY()".format(time.ctime()))
-    items = record.split('/')
-    return { 'country': items[1] }
+    return AMSNDAT
 
 ############################################################################
-#
+# Parse a MSNACFT block, assumes block is in the form:
 # MSNACFT/1/OTHAC:ALOU/BLUEBIRD01/BA/-/140/30022//
 # MSNACFT/1/OTHAC:ALOU/BLUEBIRD01/BA/-/140/30022//
 #
@@ -623,36 +649,98 @@ def parseTSKCNTRY(record):
 def parseMSNACFT(record):
     utils.common.OutputMessage(logging.DEBUG, "{0} parseMSNACFT()".format(time.ctime()))
     items = record.split('/')
-    return { 'aircraftCount': items[1], 'aircraftType': items[2], 'callsign': items[3], 'primeConfig': items[4], 'secondConfig': items[5] }
+    items.pop(0)
+    
+    MSNACFTkeys = ['aircraftCount', 'aircraftType', 'callsign', 'primeConfig', 'secondConfig', 'weaponsConfig', 'link16Callsign', 'TACCANChannel']    
+    
+    MSNACFTvalues = []
+    
+    for i in items:
+        MSNACFTvalues.append(i)
+    
+    MSNACFT = dict(zip(MSNACFTkeys,MSNACFTvalues))
+    
+    #Remove leading characters from aircraft type
+    MSNACFT['aircraftType'] = MSNACFT['aircraftType'].split(":")[1]
+    
+    return MSNACFT
+
+############################################################################
+# Parse a ROUTE block, assumes block is in the form:
+# ROUTE/-/ICAO:HHAS/-/-/151540N0394729E/-/191026Z/NAME:2/-/191049Z/NAME:XKM021/-/-/151540N0394729E/-/-/ICAO:HHAS/-// 
+#
+###########################################################################
+def parseROUTE(record):
+    utils.common.OutputMessage(logging.DEBUG, "{0} parseROUTE()".format(time.ctime()))
+    items = record.split('/')
+    
+    ROUTEkeys = ['route']
+    ROUTEvalues = []
+    
+    ROUTEvalue = ""
+        
+    for i in items:
+        i = i.upper()
+        if i.startswith('ICAO:') == True or i.startswith('NAME:') == True:            
+            ROUTEvalue = ROUTEvalue + i.split(":")[1] + "-"
+            
+    ROUTEvalues.append(ROUTEvalue[:-1])
+
+    ROUTE = dict(zip(ROUTEkeys,ROUTEvalues)) 
+    
+    return ROUTE  
 
 ############################################################################
 # Parse a GTGTLOC block (GROUND TARGET LOCATION):
 # GTGTLOC/P/TOT:141310ZAPR/NET:141300ZAPR/NLT:141345Z/DRAGONIA SAM SI/ID:0044NS0001-NS101/-/CONTROL ROOM/DMPIT:5503.0146N00233.2405W/W84/-/-/2//
 #
 ###########################################################################
-def parseGTGTLOC(record):
+def parseGTGTLOC(record,year):
     utils.common.OutputMessage(logging.DEBUG, "{0} parseGTGTLOC()".format(time.ctime()))
 
     items = record.split('/')
-
+    
     elevation = 0
-    if not '-' in items[11]: elevation = float(items[11]) * 100
+    
+    if isNotSpacer(items[14]):
+        if isfloat(items[14]):
+            elevation = float(items[14]) * 100
 
     json = {}
-    json['type']            = 'GTGTLOC'
     json['designator']      = items[1]
-    json['timeOnTarget']    = items[2]
-    json['notEarlierThan']  = items[3]
-    json['notLaterThan']    = items[4]
+    
+    #Check if time on target is not a spacer and parse to a date - otherwise just write in spacer
+    if isNotSpacer(items[2]):
+        timeOnTarget = parseDate(items[2].split(":")[1] + str(year))
+        json['timeOnTarget']  = getDateString(timeOnTarget)
+    else:
+        json['timeOnTarget'] = items[2]
+    
+    #Check if not earlier than is not a spacer and parse to a date - otherwise just write in spacer        
+    if isNotSpacer(items[3]):
+        notEarlierThan = parseDate(items[3].split(":")[1] + str(year))
+        json['notEarlierThan']  = getDateString(notEarlierThan)
+    else:
+        json['notEarlierThan'] = items[3]
+    
+    #Check if not later than is not a spacer and parse to a date - otherwise just write in spacer    
+    if isNotSpacer(items[4]):
+        notLaterThan = parseDate(items[4].split(":")[1] + str(year))
+        json['notLaterThan']  = getDateString(notLaterThan)
+    else:
+        json['notLaterThan'] = items[4]
+        
     json['targetName']      = items[5]
-    json['targetId']        = items[6]
-    json['targeType']       = items[7]
-    json['desc']            = items[8]
-    json['geodeticDatum']   = items[10]
+    json['targetPosition']  = items[6]
+    json['targetType']      = items[7].split(":")[1]
+    json['dmpiId']          = items[8]
+    json['dmpiDesc']        = items[9]
+    json['geodeticDatum']   = items[11]
     json['elevation']       = elevation
-    json['priority']        = items[13]
-
-    geometry                = parseLatLong(items[9])
+    json['priority']        = items[16]
+    json['objective']       = items[17]
+    
+    geometry                = parseLatLong(items[10],elevation)
     json['geometry'] = {}
     json['geometry']['spatialReference'] = {"wkid" : 4326}
     json['geometry']['x'] = geometry[0]
@@ -660,6 +748,42 @@ def parseGTGTLOC(record):
     json['geometry']['z'] = elevation * 0.3048
 
     return json
+    
+###########################################################################
+# Parse a parseAMSNLOC block into Esri geometry JSON.
+# Assume the POLYGON block is in the form:
+# AMSNLOC/141230ZAPR/141630ZAPR/ISLAY/150/1/LATM:5720N01000W/LATM:5720N00720W/LATM:5650N00720W/LATM:5650N00500W/LATM:5540N00500W/LATM:5540N01000W//
+#
+###########################################################################
+def parseAMSNLOC(record, year):
+    utils.common.OutputMessage(logging.DEBUG, "{0} parseAMSNLOC() - Start".format(time.ctime()))
+    
+    items = record.split('/')
+    
+    items.pop(0)
+    
+    AMSNLOCkeys = ['MSNPriority', 'startTime', 'stopTime', 'locationName', 'locationAltitude', 'areaGeometry', 'location']
+    AMSNLOCvalues = []
+    
+    for i in items:
+        AMSNLOCvalues.append(i)
+    
+    AMSNLOC = dict(zip(AMSNLOCkeys,AMSNLOCvalues))
+    
+    if isNotSpacer(AMSNLOC['startTime']):
+        startDate = parseDate(AMSNLOC['startTime'] + str(year))
+        AMSNLOC['startTime'] = getDateString(startDate)
+           
+    if isNotSpacer(AMSNLOC['stopTime']):
+        stopDate = parseDate(AMSNLOC['stopTime'] + str(year))
+        AMSNLOC['stopTime'] = getDateString(stopDate)
+    
+    if isfloat(AMSNLOC['locationAltitude']):
+        AMSNLOC['locationAltitude'] = (float(AMSNLOC['locationAltitude']) * 100)
+    else:
+        AMSNLOC['locationAltitude'] = 0
+           
+    return AMSNLOC
 
 ###########################################################################
 # Parse a TIMEFRAM block into JSON.
