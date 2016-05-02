@@ -16,6 +16,7 @@
 require([
   "esri/Map",
   "esri/views/SceneView",
+  "esri/layers/StreamLayer",
   "dojo/domReady!"
 ], function(Map, SceneView){
   var map = new Map({
@@ -28,6 +29,26 @@ require([
     center: [-101.17, 21,78]  //sets the center point of view with lon/lat
   });
 });
+      function toggleStreamLayer() {
+        if (streamLayer) {
+          removeStreamLayer();
+        }
+        else {
+          addStreamLayer();
+        }
+      }
+
+      function addStreamLayer() {
+        //url to stream service
+        var svcUrl = dom.byId("https://geoeventsample3.esri.com:6443/arcgis/rest/services/FlightAwarePosition/StreamServer").value;
+
+        //construct Stream Layer
+        streamLayer = new StreamLayer(svcUrl, {
+          purgeOptions: {
+            displayCount: 10000
+          }
+        });
+        };
 </script>
 </head>
 <body>
