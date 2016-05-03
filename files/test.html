@@ -11,14 +11,14 @@
   }
 </style>
 <link rel="stylesheet" href="https://js.arcgis.com/4.0beta3/esri/css/main.css">
-<script src="https://js.arcgis.com/4.0beta3/"></script>
+<script src="http://js.arcgis.com/4.0beta3/"></script>
 <script>
 require([
   "esri/Map",
   "esri/views/SceneView",
   "esri/layers/StreamLayer",
   "dojo/domReady!"
-], function(Map, SceneView){
+], function(Map, SceneView, StreamLayer){
   var map = new Map({
     basemap: "streets"
   });
@@ -28,14 +28,12 @@ require([
     scale: 50000000,  //sets the initial scale to 1:50,000,000
     center: [-101.17, 21,78]  //sets the center point of view with lon/lat
   });
-}), function(StreamLayer){
-var streamLayer = new StreamLayer('https://geoeventsample3.esri.com:6443/arcgis/rest/services/FlightAwarePosition/StreamServer', {
-  purgeOptions: {
-    displayCount: 1000
+  var streamLayer = new StreamLayer('https://geoeventsample3.esri.com:6443/arcgis/rest/services/FlightAwarePosition/StreamServer', {
+    purgeOptions: {
+      displayCount: 1000
   }});
-}
-
-
+  map.add(streamLayer);  
+})
 </script>
 </head>
 <body>
