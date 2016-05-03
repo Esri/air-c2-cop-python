@@ -76,7 +76,7 @@ class ACOWriter:
     def _insertGeometry(self, targetWS, amsId, sourceJson):
         utils.common.OutputMessage(logging.DEBUG, "{0} ACOWriter._insertGeometry() - Start".format(time.ctime()))
 
-        fields          = ['AMSID', 'ID', 'NAME', 'USE', 'EFFLEVEL', 'MIN_HEIGHT', 'MAX_HEIGHT', 'EXT_HEIGHT', 'SHAPE@JSON']
+        fields          = ['AMSID', 'ACM', 'NAME', 'USE', 'EFFLEVEL', 'MIN_HEIGHT', 'MAX_HEIGHT', 'EXT_HEIGHT', 'SHAPE@JSON']
         valuesPolygon   = []
         valuesLine      = []
         valuesPoint     = []
@@ -249,7 +249,7 @@ class ATOWriter:
         
 
         # Insert points
-        table   = '%s/ATO_POINT' % (targetWS)
+        table   = '%s/ATO_MISSION' % (targetWS)
         cursor  = arcpy.da.InsertCursor(table, fields)
         for row in valuesPoint:
             cursor.insertRow(row)
