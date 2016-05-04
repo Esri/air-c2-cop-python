@@ -76,7 +76,7 @@ class ACOWriter:
     def _insertGeometry(self, targetWS, amsId, sourceJson):
         utils.common.OutputMessage(logging.DEBUG, "{0} ACOWriter._insertGeometry() - Start".format(time.ctime()))
 
-        fields          = ['AMSID', 'ID', 'NAME', 'USE', 'EFFLEVEL', 'MIN_HEIGHT', 'MAX_HEIGHT', 'EXT_HEIGHT', 'SHAPE@JSON']
+        fields          = ['AMSID', 'ACM', 'NAME', 'USE', 'EFFLEVEL', 'MIN_HEIGHT', 'MAX_HEIGHT', 'EXT_HEIGHT', 'SHAPE@JSON']
         valuesPolygon   = []
         valuesLine      = []
         valuesPoint     = []
@@ -94,9 +94,7 @@ class ACOWriter:
                 max     = record['efflevel']['max_height']
                 extrude = record['efflevel']['ext_height']
                 geom    = json.dumps(record['geometry'])
-                
-                utils.common.OutputMessage(logging.DEBUG, record['name'])
-                
+                                
                 if type.upper() == 'GEOLINE':
                     valuesLine.append((amsId, id, name, use, level, min, max, extrude, geom))
                 elif type.upper() == 'LINE':
@@ -119,7 +117,6 @@ class ACOWriter:
         table   = '%s/ACO_POLYGON' % (targetWS)
         cursor  = arcpy.da.InsertCursor(table, fields)
         for row in valuesPolygon:
-            #utils.common.OutputMessage(logging.DEBUG, row)
             cursor.insertRow(row)            
         del cursor
 
@@ -127,7 +124,6 @@ class ACOWriter:
         table   = '%s/ACO_LINE' % (targetWS)
         cursor  = arcpy.da.InsertCursor(table, fields)
         for row in valuesLine:
-            #utils.common.OutputMessage(logging.DEBUG, row)
             cursor.insertRow(row)
         del cursor
         
@@ -173,10 +169,6 @@ class ATOWriter:
 
     def execute(self, sourceJson, targetWS):
         utils.common.OutputMessage(logging.DEBUG, "{0} ATOWriter.execute() - Start".format(time.ctime()))
-
-        utils.common.OutputMessage(logging.DEBUG, sourceJson)
-        utils.common.OutputMessage(logging.DEBUG, targetWS)
-
         self._insertGeometry(targetWS, '', sourceJson)
 
         utils.common.OutputMessage(logging.DEBUG, "{0} ATOWriter.execute() - Finish".format(time.ctime()))
@@ -185,7 +177,7 @@ class ATOWriter:
 
     def _insertGeometry(self, targetWS, amsId, sourceJson):
         utils.common.OutputMessage(logging.DEBUG, "{0} ATOWriter._insertGeometry() - Start".format(time.ctime()))
-
+        
         fields = []
         fields.append('AMSID')
         fields.append('TASK_COUNTRY')
@@ -197,15 +189,8 @@ class ATOWriter:
         fields.append('AC_CALLSIGN')
         fields.append('DEP_LOC')
         fields.append('REC_LOC')
-
-        fields.append('TYPE')
-
-        # AMSNLOC ATTRIBUTES
-        fields.append('AMSNLOC_START')
-        fields.append('AMSNLOC_STOP')
-        fields.append('AMSNLOC_ID')
-        fields.append('HEIGHT')
-        
+        fields.append('ROUTE')
+                
         # GTGTLOC ATTRIBUTES
         fields.append('GTGT_NLT')
         fields.append('GTGT_TOT')
@@ -216,98 +201,57 @@ class ATOWriter:
         fields.append('GTGT_NAME')
         fields.append('GTGT_DESC')
         fields.append('GTGT_PRIORITY')
-
-        fields.append('TASK_SORT_ORDER')
-        fields.append('GEOM_SORT_ORDER')
         fields.append('SHAPE@JSON')
-
+        
         id = sourceJson['header']['EXER']['id']
 
-        valuesLine = []
-        for taskCountry in sourceJson['taskCountries']:
-            taskUnits = taskCountry['taskUnits']
-            for taskUnit in taskUnits:
-                for task in taskUnit['tasks']:
-                    record = task['AMSNDAT']
-                    for location in record['location']:
-
-                        values = []
-                        values.append(id)
-                        values.append(taskCountry['country'])
-                        values.append(taskUnit['taskUnit'])
-                        values.append(taskUnit['location'])
-                        values.append(record['missionno'])
-                        values.append(record['missionType'])
-                        values.append(record['aircraft']['aircraftType'])
-                        values.append(record['aircraft']['callsign'])
-                        values.append(record['departureLocation'])
-                        values.append(record['recoveryLocation'])
-
-                        type = location['type']
-                        values.append(type)
-
-                        if type == 'AMSNLOC':
-                            # AMSNLOC ATTRIBUTES
-                            values.append(location['start'])
-                            values.append(location['stop'])
-                            values.append(location['id'])
-                            values.append(location['height'])
-                            values.append('')
-                            values.append('')
-                            values.append('')
-                            values.append('')
-                            values.append('')
-                            values.append('')
-                            values.append('')
-                            values.append('')
-                            values.append('')
-                        else:
-                            # GTGTLOC ATTRIBUTES
-                            values.append(None)
-                            values.append(None)
-                            values.append(None)
-                            values.append(location['elevation'])
-                            values.append(location['notLaterThan'])
-                            values.append(location['timeOnTarget'])
-                            values.append(location['notEarlierThan'])
-                            values.append(location['designator'])
-                            values.append(location['targeType'])
-                            values.append(location['targetId'])
-                            values.append(location['targetName'])
-                            values.append(location['desc'])
-                            values.append(location['priority'])
-
-                        values.append(record['SORTORDER'])
-                        values.append(location['SORTORDER'])
-                        values.append(json.dumps(location['geometry']))
-
-                        valuesLine.append(values)
-
-        #geometryRecords = sourceJson['geometry']
-        #for item in geometryRecords:
-        #    record = item['AMSNDAT']
-        #    #utils.common.OutputMessage(logging.DEBUG, record)
-        #    if record.has_key('AMSNLOC') == True and record['AMSNLOC'].has_key('geometry') == True and len(record['AMSNLOC']['geometry']['paths']) > 0:
-        #        geom    = record['AMSNLOC']['geometry']
-        #        id      = ''
-        #        name    = ''
-        #        use     = ''
-        #        level   = ''
-        #        valuesLine.append((amsId, id, name, use, level, json.dumps(geom)))
-
-        #utils.common.OutputMessage(logging.DEBUG, valuesLine)
-
-        # Insert line records
-        #table   = '%s/ATO_LINE' % (targetWS)
-        #cursor  = arcpy.da.InsertCursor(table, fields)
-        #for row in valuesLine:
-        #    cursor.insertRow(row)
-        #del cursor
+        valuesPoint = []
+        for TaskGroupingCategory in sourceJson['Missions']:
+            
+            taskUnit = TaskGroupingCategory['taskUnit']
+            
+            for task in TaskGroupingCategory['taskUnit']['tasks']:
+            
+                amsndat_ind = task['AMSNDAT']
+                
+                values = []
+                values.append(id)
+                values.append(taskUnit['Nationality'])
+                values.append(taskUnit['UnitID'])
+                values.append(taskUnit['UnitLocation'])
+                values.append(amsndat_ind['missionNo'])
+                
+                values.append(amsndat_ind['primaryMissionType'])
+                values.append(amsndat_ind['aircraft']['aircraftCount'] + " x " + amsndat_ind['aircraft']['aircraftType'])
+                values.append(amsndat_ind['aircraft']['callsign'])
+                values.append(amsndat_ind['departureLocation'])
+                values.append(amsndat_ind['recoveryLocation'])
+                
+                if amsndat_ind['route']:
+                    values.append(amsndat_ind['route']['route'])
+                else:
+                    values.append(None)
+                
+                
+                if amsndat_ind['GTGTLOC']:
+                    if amsndat_ind['GTGTLOC']['geometry']:
+                        values.append(amsndat_ind['GTGTLOC']['notLaterThan'])
+                        values.append(amsndat_ind['GTGTLOC']['timeOnTarget'])
+                        values.append(amsndat_ind['GTGTLOC']['notEarlierThan'])
+                        values.append(amsndat_ind['GTGTLOC']['designator'])
+                        values.append(amsndat_ind['GTGTLOC']['targetType'])
+                        values.append(amsndat_ind['GTGTLOC']['dmpiId'])
+                        values.append(amsndat_ind['GTGTLOC']['targetName'])
+                        values.append(amsndat_ind['GTGTLOC']['dmpiDesc'])
+                        values.append(amsndat_ind['GTGTLOC']['priority'])
+                        values.append(json.dumps(amsndat_ind['GTGTLOC']['geometry']))
+                        valuesPoint.append(values)                                  
+        
 
         # Insert points
-        table   = '%s/ATO_POINT' % (targetWS)
+        table   = '%s/ATO_MISSION' % (targetWS)
         cursor  = arcpy.da.InsertCursor(table, fields)
-        for row in valuesLine:
+        for row in valuesPoint:
             cursor.insertRow(row)
         del cursor
 
