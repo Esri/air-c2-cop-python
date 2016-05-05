@@ -35,3 +35,15 @@ MIN_HEIGHT|Minimum Height|Specifies the minimum effective level
 MAX_HEIGHT|Maximum Height|Specifies the maximum effective level
 EXT_HEIGHT|Extrude Height|Specifies the difference between the minimum and maximum effective level
 
+
+###ACO Period - Standalone Table###
+
+Field|Name|Alias	Description
+----------|-----|-----------
+AMSID|AMSID|Specifies the Air Mission Exercise or Operation Name
+ID|Airspace Control Means|Specifies the type of Airspace control means identifier
+PERIOD|Effective From|Specifies the date and time the Airspace control means is active from
+PERIOD_TO|Effective To|Specifies the date and time the Airspace control means is active to
+NAME|Name|Specifies the type of Airspace control means identifier (used to link back to the geometry feature classes)
+
+
