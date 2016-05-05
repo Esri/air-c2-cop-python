@@ -50,7 +50,9 @@ ProcessATO - tools\scripts\amt_process_ato.py
 The overall processes are split into 3 key areas:
 
 1. Reader (tools\scripts\airspacemanagement\reader.py)
+
 2. Parser (tools\scripts\airspacemanagement\parser.py)
+
 3. Writer (tools\scripts\airspacemanagement\writer.py)
 
 * A set of readers parse the overall '//' delimeted input file into a set of 'records' (records delimited by the //).
