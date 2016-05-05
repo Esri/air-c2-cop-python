@@ -57,14 +57,13 @@ The overall processes are split into 3 key areas:
 * ACOReader, ATOReader and related classes control the overall file processing logic.
 * Reader classes delegate to the parser.py methods for parsing individual records into corresponding JSON data.
 * Writer classes write the JSON data into the FGDB.
-
 * The ACO / ATO files are processed into a JSON data structure.
 * This JSON data structure is then written into the geodatase by the writer classes.
 * The JSON data structure is also written to the output folder for convenience / diagnostics.
 
 To prevent output to the logs folder change the setting in:
 
-\tools\scripts\esriuk\config\settings.py   LOG_ENABLE_FILE = False
+*\tools\scripts\config\settings.py   LOG_ENABLE_FILE = False
 
 Resources
 
