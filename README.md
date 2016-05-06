@@ -13,13 +13,13 @@ This template include scripts and related content for processing Air Control Ord
 
 The download includes the following content:
 
-  * data      - database schema for the processed files
-  * files     - sample ACO, ATO files to be processed
-  * logs      - container for log files to be created
-  * arcmap    - .mxd containing styled feature classes ready for publishing to ArcGIS server
-  * output    - container for output files to be created
-  * tools     - processing toolbox and related scripts
-  * arcgispro - ArcGIS Pro project
+  * data      - database schema for the processed files  
+  * files     - sample ACO, ATO files to be processed  
+  * logs      - container for log files to be created  
+  * arcmap    - .mxd containing styled feature classes ready for publishing to ArcGIS server  
+  * output    - container for output files to be created  
+  * tools     - processing toolbox and related scripts  
+  * arcgispro - ArcGIS Pro project  
 
 ##Instructions##
 
@@ -60,13 +60,13 @@ The overall processes are split into 3 key areas:
 
 3. Writer (tools\scripts\airspacemanagement\writer.py)
 
-  *A set of readers parse the overall '//' delimeted input file into a set of 'records' (records delimited by the //).
-  *ACOReader, ATOReader and related classes control the overall file processing logic.
-  *Reader classes delegate to the parser.py methods for parsing individual records into corresponding JSON data.
-  *Writer classes write the JSON data into the FGDB.
-  *The ACO / ATO files are processed into a JSON data structure.
-  *This JSON data structure is then written into the geodatase by the writer classes.
-  *The JSON data structure is also written to the output folder for convenience / diagnostics.
+  *A set of readers parse the overall '//' delimeted input file into a set of 'records' (records delimited by the //)  
+  *ACOReader, ATOReader and related classes control the overall file processing logic  
+  *Reader classes delegate to the parser.py methods for parsing individual records into corresponding JSON data  
+  *Writer classes write the JSON data into the FGDB  
+  *The ACO / ATO files are processed into a JSON data structure  
+  *This JSON data structure is then written into the geodatase by the writer classes  
+  *The JSON data structure is also written to the output folder for convenience / diagnostics  
 
 To prevent output to the logs folder change the setting in:
 
