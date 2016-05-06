@@ -33,15 +33,16 @@ The download includes the following content:
 ..*Target Workspace: the target workspace containing the feature classes to write the ACO to
 ..*Log Level: (Optional) - select DEBUG for extended diagnostics
 
+To process an ATO follow the same steps as above but select the ProcessATO tool.
+
 ###To view and share the processed ACO/ATO:###
 
 1. Open the arcmap/AirControlOrder.mxd
 2. [Share as a web map](http://server.arcgis.com/en/server/latest/get-started/windows/tutorial-publishing-a-map-service.htm "Tutorial: Publishing a map service")
 
+###To delete an ACO/ATO:###
+
 To delete ACOs run the DeleteACORecord.  By default ALL ACOs will be deleted.
-
-To process an ATO follow the same steps as above but select the ProcessATO tool.
-
 To delete ATOs run the DeleteATORecord.  By default ALL ATOs will be deleted.
 
 ##Scripts Overview##
