@@ -13,13 +13,13 @@ This template include scripts and related content for processing Air Control Ord
 
 The download includes the following content:
 
-  * data      - database schema for the processed files  
-  * files     - sample ACO, ATO files to be processed  
-  * logs      - container for log files to be created  
-  * arcmap    - .mxd containing styled feature classes ready for publishing to ArcGIS server  
-  * output    - container for output files to be created  
-  * tools     - processing toolbox and related scripts  
-  * arcgispro - ArcGIS Pro project  
+  *data - database schema for the processed files  
+  *files - sample ACO, ATO files to be processed  
+  *logs - container for log files to be created  
+  *arcmap - .mxd containing styled feature classes ready for publishing to ArcGIS server  
+  *output - container for output files to be created  
+  *tools - processing toolbox and related scripts  
+  *arcgispro - ArcGIS Pro project  
 
 ##Instructions##
 
@@ -28,10 +28,10 @@ The download includes the following content:
 1. Open ArcCatalog
 2. Open the AirspaceManagementTools.tbx in the above tools folder
 3. Double click the ProcessACO script
-4. Specify parameters:
-  *Source File: the source ACO file to be processed (found in files folder).
-  *Target Workspace: the target workspace containing the feature classes to write the ACO to
-  *Log Level: (Optional) - select DEBUG for extended diagnostics
+4. Specify parameters:  
+  *Source File: the source ACO file to be processed (found in files folder)  
+  *Target Workspace: the target workspace containing the feature classes to write the ACO to  
+  *Log Level: (Optional) - select DEBUG for extended diagnostics  
 
 To process an ATO follow the same steps as above but select the ProcessATO tool.
 
