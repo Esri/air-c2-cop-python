@@ -13,26 +13,30 @@ This template include scripts and related content for processing Air Control Ord
 
 The download includes the following content:
 
-* data      - database schema for the processed files
-* files     - sample ACO, ATO files to be processed
-* logs      - container for log files to be created
-* arcmap    - .mxd containing styled feature classes ready for publishing to ArcGIS server
-* output    - container for output files to be created
-* tools     - processing toolbox and related scripts
-* arcgispro - ArcGIS Pro project
+..* data      - database schema for the processed files
+..* files     - sample ACO, ATO files to be processed
+..* logs      - container for log files to be created
+..* arcmap    - .mxd containing styled feature classes ready for publishing to ArcGIS server
+..* output    - container for output files to be created
+..* tools     - processing toolbox and related scripts
+..* arcgispro - ArcGIS Pro project
 
 ##Instructions##
 
-To process an ACO:
+###To process an ACO/ATO:###
 
-1. Open ArcCatalog.
-2. Open the AirspaceManagementTools.tbx in the above tools folder.
-3. Specify parameters:
-*Source File: the source ACO file to be processed (found in files folder).
-*Target Workspace: the target workspace containing the feature classes to write the ACO to.
-*Log Level: (Optional) - select DEBUG for extended diagnostics
-4. ACO JSON data is output to the output folder.
-5. Open the arcmap/AirControlOrder.mxd to view the processed ACO data.
+1. Open ArcCatalog
+2. Open the AirspaceManagementTools.tbx in the above tools folder
+3. Double click the ProcessACO script
+4. Specify parameters:
+..*Source File: the source ACO file to be processed (found in files folder).
+..*Target Workspace: the target workspace containing the feature classes to write the ACO to
+..*Log Level: (Optional) - select DEBUG for extended diagnostics
+
+###To view and share the processed ACO/ATO:###
+
+1. Open the arcmap/AirControlOrder.mxd
+2. [Share as a web map](http://server.arcgis.com/en/server/latest/get-started/windows/tutorial-publishing-a-map-service.htm "Tutorial: Publishing a map service")
 
 To delete ACOs run the DeleteACORecord.  By default ALL ACOs will be deleted.
 
@@ -55,17 +59,17 @@ The overall processes are split into 3 key areas:
 
 3. Writer (tools\scripts\airspacemanagement\writer.py)
 
-* A set of readers parse the overall '//' delimeted input file into a set of 'records' (records delimited by the //).
-* ACOReader, ATOReader and related classes control the overall file processing logic.
-* Reader classes delegate to the parser.py methods for parsing individual records into corresponding JSON data.
-* Writer classes write the JSON data into the FGDB.
-* The ACO / ATO files are processed into a JSON data structure.
-* This JSON data structure is then written into the geodatase by the writer classes.
-* The JSON data structure is also written to the output folder for convenience / diagnostics.
+..*A set of readers parse the overall '//' delimeted input file into a set of 'records' (records delimited by the //).
+..*ACOReader, ATOReader and related classes control the overall file processing logic.
+..*Reader classes delegate to the parser.py methods for parsing individual records into corresponding JSON data.
+..*Writer classes write the JSON data into the FGDB.
+..*The ACO / ATO files are processed into a JSON data structure.
+..*This JSON data structure is then written into the geodatase by the writer classes.
+..*The JSON data structure is also written to the output folder for convenience / diagnostics.
 
 To prevent output to the logs folder change the setting in:
 
-*\tools\scripts\config\settings.py   LOG_ENABLE_FILE = False
+*tools\scripts\config\settings.py   LOG_ENABLE_FILE = False
 
 Resources
 
