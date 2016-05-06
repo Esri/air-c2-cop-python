@@ -29,6 +29,7 @@ The download includes the following content:
 2. Open the AirspaceManagementTools.tbx in the above tools folder
 3. Double click the ProcessACO script
 4. Specify parameters:  
+
   *Source File: the source ACO file to be processed (found in files folder)  
   *Target Workspace: the target workspace containing the feature classes to write the ACO to  
   *Log Level: (Optional) - select DEBUG for extended diagnostics  
