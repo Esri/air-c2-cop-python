@@ -43,14 +43,14 @@ To process an ATO follow the same steps as above but select the ProcessATO tool.
 ###To delete an ACO/ATO:###
 
 To delete ACOs run the DeleteACORecord. By default ALL ACOs will be deleted.  
-To delete ATOs run the DeleteATORecord. By default ALL ATOs will be deleted.
+To delete ATOs run the DeleteATORecord. By default ALL ATOs will be deleted.  
 
 ##Scripts Overview##
 
 Each tool has a corresponding top level .py file:
 
-ProcessACO - tools\scripts\amt_process_aco.py
-ProcessATO - tools\scripts\amt_process_ato.py
+ProcessACO - tools\scripts\amt_process_aco.py  
+ProcessATO - tools\scripts\amt_process_ato.py  
 
 The overall processes are split into 3 key areas:
 
