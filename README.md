@@ -70,7 +70,7 @@ The overall processes are split into 3 key areas:
 
 To prevent output to the logs folder change the setting in:
 
-  +tools\scripts\config\settings.py   LOG_ENABLE_FILE = False
+  + tools\scripts\config\settings.py   LOG_ENABLE_FILE = False
 
 Resources
 
