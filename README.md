@@ -13,13 +13,14 @@ This template include scripts and related content for processing Air Control Ord
 
 The download includes the following content:
 
+  *arcgispro - ArcGIS Pro project  
+  *arcmap - .mxd containing styled feature classes ready for publishing to ArcGIS server  
   *data - database schema for the processed files  
   *files - sample ACO, ATO files to be processed  
   *logs - container for log files to be created  
-  *arcmap - .mxd containing styled feature classes ready for publishing to ArcGIS server  
   *output - container for output files to be created  
   *tools - processing toolbox and related scripts  
-  *arcgispro - ArcGIS Pro project  
+
 
 ##Instructions##
 
@@ -28,8 +29,7 @@ The download includes the following content:
 1. Open ArcCatalog
 2. Open the AirspaceManagementTools.tbx in the above tools folder
 3. Double click the ProcessACO script
-4. Specify parameters:
-
+4. Specify parameters:  
   *Source File: the source ACO file to be processed (found in files folder)  
   *Target Workspace: the target workspace containing the feature classes to write the ACO to  
   *Log Level: (Optional) - select DEBUG for extended diagnostics  
@@ -59,8 +59,7 @@ The overall processes are split into 3 key areas:
 
 2. Parser (tools\scripts\airspacemanagement\parser.py)
 
-3. Writer (tools\scripts\airspacemanagement\writer.py)
-
+3. Writer (tools\scripts\airspacemanagement\writer.py)  
   *A set of readers parse the overall '//' delimeted input file into a set of 'records' (records delimited by the //)  
   *ACOReader, ATOReader and related classes control the overall file processing logic  
   *Reader classes delegate to the parser.py methods for parsing individual records into corresponding JSON data  
@@ -71,7 +70,7 @@ The overall processes are split into 3 key areas:
 
 To prevent output to the logs folder change the setting in:
 
-*tools\scripts\config\settings.py   LOG_ENABLE_FILE = False
+  *tools\scripts\config\settings.py   LOG_ENABLE_FILE = False
 
 Resources
 
