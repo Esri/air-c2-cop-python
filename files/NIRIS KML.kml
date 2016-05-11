@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+   <Document>
+      <name>NIRIS/TIES Track-Stores</name>
+      <description>NIRIS/TIES Tracks in Keyhole Markup Language</description>
+      <Snippet maxLines="4">NIRIS TIES KML-service developed by NC3A NIRIS team</Snippet>
+      <visibility>1</visibility>
+      <ScreenOverlay>
+         <name>NIRIS-Logo</name>
+         <visibility>1</visibility>
+         <Icon>
+            <href>http://niris.ncia.nato.int/tixo/kml/nirislogo.png</href>
+         </Icon>
+         <overlayXY x="0.0" xunits="fraction" y="1.0" yunits="fraction"/>
+         <screenXY x="0.0" xunits="fraction" y="1.0" yunits="fraction"/>
+         <rotationXY x="0.5" xunits="fraction" y="0.5" yunits="fraction"/>
+         <size x="-1.0" xunits="pixels" y="-1.0" yunits="pixels"/>
+         <rotation>0.0</rotation>
+      </ScreenOverlay>
+      <NetworkLink>
+         <name>ADS-B</name>
+         <refreshVisibility>1</refreshVisibility>
+         <Link>
+            <href>http://niris.ncia.nato.int/tixo/kml/ADS-B.kmz</href>
+            <refreshMode>onInterval</refreshMode>
+            <refreshInterval>60</refreshInterval>
+         </Link>
+      </NetworkLink>
+      <NetworkLink>
+         <name>Demo-NFFI-recording</name>
+         <refreshVisibility>1</refreshVisibility>
+         <Link>
+            <href>http://niris.ncia.nato.int/tixo/kml/Demo-NFFI-recording.kmz</href>
+            <refreshMode>onInterval</refreshMode>
+            <refreshInterval>60</refreshInterval>
+         </Link>
+      </NetworkLink>
+      <NetworkLink>
+         <name>Demo-MAJIIC_NFFI</name>
+         <refreshVisibility>1</refreshVisibility>
+         <Link>
+            <href>http://niris.ncia.nato.int/tixo/kml/Demo-MAJIIC_NFFI.kmz</href>
+            <refreshMode>onInterval</refreshMode>
+            <refreshInterval>60</refreshInterval>
+         </Link>
+      </NetworkLink>
+      <NetworkLink>
+         <name>NIEM</name>
+         <refreshVisibility>1</refreshVisibility>
+         <Link>
+            <href>http://niris.ncia.nato.int/tixo/kml/NIEM.kmz</href>
+            <refreshMode>onInterval</refreshMode>
+            <refreshInterval>60</refreshInterval>
+         </Link>
+      </NetworkLink>
+      <NetworkLink>
+         <name>AIS</name>
+         <refreshVisibility>1</refreshVisibility>
+         <Link>
+            <href>http://niris.ncia.nato.int/tixo/kml/AIS.kmz</href>
+            <refreshMode>onInterval</refreshMode>
+            <refreshInterval>60</refreshInterval>
+         </Link>
+      </NetworkLink>
+      <NetworkLink>
+         <name>Demo-Link16-recording</name>
+         <refreshVisibility>1</refreshVisibility>
+         <Link>
+            <href>http://niris.ncia.nato.int/tixo/kml/Demo-Link16-recording.kmz</href>
+            <refreshMode>onInterval</refreshMode>
+            <refreshInterval>60</refreshInterval>
+         </Link>
+      </NetworkLink>
+   </Document>
+</kml>
