@@ -287,7 +287,7 @@ def parseHeight(value):
 def parseACMID(record):
     utils.common.OutputMessage(logging.DEBUG, "{0} parseACMID()".format(time.ctime()))
     items = record.split('/')
-    return { 'id': items[1], 'name': items[2].replace('NAME:', ''), 'type': items[3], 'use': items[4].replace('USE:', '') }
+    return { 'id': items[1].split(':')[1], 'name': items[2].replace('NAME:', ''), 'type': items[3], 'use': items[4].replace('USE:', '') }
 
 ###########################################################################
 # Parse a POLYGON block into Esri geometry JSON.
