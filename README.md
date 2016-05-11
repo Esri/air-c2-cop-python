@@ -72,10 +72,11 @@ To prevent output to the logs folder change the setting in:
 
   + tools\scripts\config\settings.py   LOG_ENABLE_FILE = False
 
-Resources
+##Resources##
+To see a sample JS Web Scene, go to http://arcgis.github.io/air-c2-cop/files/test.
 
-Issues
+##Issues##
 
-Contributing
+##Contributing##
 
-Licensing
+##Licensing##
