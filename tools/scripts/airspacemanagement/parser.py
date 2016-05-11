@@ -259,23 +259,32 @@ def parsePERIOD(record):
 def parseEFFLEVEL(record):
     items   = record.split('/')
     height  = parseHeight(items[1])
-    return { 'label': items[1], 'min_height': height['min_height'], 'max_height': height['max_height'], 'ext_height': height['max_height'] - height['min_height']}
+    return { 'label': items[1], 'min_height': height['min_height'], 'max_height': height['max_height'], 'min_height_ref': height['min_height_ref'], 'max_height_ref': height['max_height_ref'],'ext_height': height['max_height'] - height['min_height']}
 
 def parseHeight(value):
-    json = { 'min_height': 0, 'max_height': 0 }
+    json = { 'min_height': 0, 'max_height': 0, 'min_height_ref': '', 'max_height_ref': ''}
 
-    v = value.split(':')
-    v = v[1].split('-')
+    if ':' in value:
+      v = value.split(':')
+      v = v[1].split('-')
+    else:
+      v = value.split('-')
     
     if(len(v)<=1):       
         min = re.sub(r'\D', '', v[0])
+        min_ref = re.sub(r'\d', '', v[0])
         max = re.sub(r'\D', '', v[0])
+        max_ref = re.sub(r'\d', '', v[0])
     else:        
         min = re.sub(r'\D', '', v[0])
+        min_ref = re.sub(r'\d', '', v[0])
         max = re.sub(r'\D', '', v[1])
+        max_ref = re.sub(r'\d', '', v[1])
     
     if len(min) != 0: json['min_height'] = float(min) * 100
     if len(max) != 0: json['max_height'] = float(max) * 100
+    if len(min_ref) != 0: json['min_height_ref'] = min_ref
+    if len(max_ref) != 0: json['max_height_ref'] = max_ref
 
     return json
 
