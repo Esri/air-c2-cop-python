@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Get started with SceneView - Create a 3D map</title>
+<style>
+    html, body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+    }
+</style>
+<link rel="stylesheet" href="./c2air.css">
+<link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/main.css">
+<link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/calcite/calcite.css">
+<script src="https://js.arcgis.com/4.0/"></script>
+<script>
+require([
+  "esri/Map",
+  "esri/views/SceneView",
+  "esri/layers/StreamLayer",
+  "esri/identity/IdentityManager",
+  "dojo/domReady!"
+], function(Map, SceneView, StreamLayer, esriID){
+  var map = new Map({
+    basemap: "streets",
+    ground:"world-elevation"
+  });
+  var view = new SceneView({
+    container: "viewDiv",  
+    map: map,  
+    scale: 50000000,  
+    center: [-101.17, 21,78],
+    purgeOptions: {
+        displayCount: 10000
+    }      
+  });
+  var streamLayer = new StreamLayer({
+      url: 'https://geoeventsample3.esri.com:6443/arcgis/rest/services/FlightAwarePosition/StreamServer', 
+      purgeOptions: {
+        displayCount: 1000
+      }
+  });
+  map.add(streamLayer);  
+})
+</script>
+</head>
+<body class="calcite">
+    <div style="outline: medium none;" title="UNCLASSIFIED" class="classification unclassified">UNCLASSIFIED</div>
+    <div id="viewDiv" class="map-view"></div>
+    <div style="outline: medium none;" title="UNCLASSIFIED" class="classification unclassified">UNCLASSIFIED</div>
+</body>
+</html>

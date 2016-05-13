@@ -1,0 +1,238 @@
+{
+  "displayFieldName" : "",
+  "hasZ" : true,
+  "fieldAliases" : {
+    "OBJECTID" : "OBJECTID",
+    "AMSID" : "AMSID",
+    "ID" : "ID",
+    "NAME" : "NAME",
+    "USE" : "USE",
+    "EFFLEVEL" : "EFFLEVEL",
+    "MIN_HEIGHT" : "Minimum Height",
+    "MAX_HEIGHT" : "Maximum Height",
+    "EXT_HEIGHT" : "Extrude Height",
+    "created_user" : "created_user",
+    "created_date" : "created_date",
+    "last_edited_user" : "last_edited_user",
+    "last_edited_date" : "last_edited_date",
+    "SHAPE_Length" : "SHAPE_Length"
+  },
+  "geometryType" : "esriGeometryPolyline",
+  "spatialReference" : {
+    "wkid" : 4326,
+    "latestWkid" : 4326
+  },
+  "fields" : [
+    {
+      "name" : "OBJECTID",
+      "type" : "esriFieldTypeOID",
+      "alias" : "OBJECTID"
+    },
+    {
+      "name" : "AMSID",
+      "type" : "esriFieldTypeString",
+      "alias" : "AMSID",
+      "length" : 20
+    },
+    {
+      "name" : "ID",
+      "type" : "esriFieldTypeString",
+      "alias" : "ID",
+      "length" : 20
+    },
+    {
+      "name" : "NAME",
+      "type" : "esriFieldTypeString",
+      "alias" : "NAME",
+      "length" : 20
+    },
+    {
+      "name" : "USE",
+      "type" : "esriFieldTypeString",
+      "alias" : "USE",
+      "length" : 10
+    },
+    {
+      "name" : "EFFLEVEL",
+      "type" : "esriFieldTypeString",
+      "alias" : "EFFLEVEL",
+      "length" : 50
+    },
+    {
+      "name" : "MIN_HEIGHT",
+      "type" : "esriFieldTypeDouble",
+      "alias" : "Minimum Height"
+    },
+    {
+      "name" : "MAX_HEIGHT",
+      "type" : "esriFieldTypeDouble",
+      "alias" : "Maximum Height"
+    },
+    {
+      "name" : "EXT_HEIGHT",
+      "type" : "esriFieldTypeDouble",
+      "alias" : "Extrude Height"
+    },
+    {
+      "name" : "created_user",
+      "type" : "esriFieldTypeString",
+      "alias" : "created_user",
+      "length" : 255
+    },
+    {
+      "name" : "created_date",
+      "type" : "esriFieldTypeDate",
+      "alias" : "created_date",
+      "length" : 8
+    },
+    {
+      "name" : "last_edited_user",
+      "type" : "esriFieldTypeString",
+      "alias" : "last_edited_user",
+      "length" : 255
+    },
+    {
+      "name" : "last_edited_date",
+      "type" : "esriFieldTypeDate",
+      "alias" : "last_edited_date",
+      "length" : 8
+    },
+    {
+      "name" : "SHAPE_Length",
+      "type" : "esriFieldTypeDouble",
+      "alias" : "SHAPE_Length"
+    }
+  ],
+  "features" : [
+    {
+      "attributes" : {
+        "OBJECTID" : 38,
+        "AMSID" : "OP MONTEREY STRIKE",
+        "ID" : "ACM:ROZ",
+        "NAME" : "EAGLE A",
+        "USE" : "ROA",
+        "EFFLEVEL" : "BRRA:350AGL-450AGL",
+        "MIN_HEIGHT" : 35000,
+        "MAX_HEIGHT" : 45000,
+        "EXT_HEIGHT" : 10000,
+        "created_user" : null,
+        "created_date" : null,
+        "last_edited_user" : null,
+        "last_edited_date" : null,
+        "SHAPE_Length" : 5.264176184287308
+      },
+      "geometry" : {
+        "hasZ" : true,
+        "paths" : [
+          [
+            [
+              -121.77111111099998,
+              37.312222222000059,
+              35000
+            ],
+            [
+              -119.76055555599999,
+              38.561388889000057,
+              35000
+            ],
+            [
+              -118.32083333299994,
+              38.716111111000032,
+              35000
+            ],
+            [
+              -117.05972222199995,
+              38.002222222000057,
+              35000
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "attributes" : {
+        "OBJECTID" : 39,
+        "AMSID" : "OP MONTEREY STRIKE",
+        "ID" : "ACM:ROZ",
+        "NAME" : "EAGLE B",
+        "USE" : "ROA",
+        "EFFLEVEL" : "BRRA:350AGL-450AGL",
+        "MIN_HEIGHT" : 35000,
+        "MAX_HEIGHT" : 45000,
+        "EXT_HEIGHT" : 10000,
+        "created_user" : null,
+        "created_date" : null,
+        "last_edited_user" : null,
+        "last_edited_date" : null,
+        "SHAPE_Length" : 6.0384395837518339
+      },
+      "geometry" : {
+        "hasZ" : true,
+        "paths" : [
+          [
+            [
+              -121.65638888899997,
+              36.646666667000034,
+              35000
+            ],
+            [
+              -117.42083333299996,
+              36.646666667000034,
+              35000
+            ],
+            [
+              -115.71722222199998,
+              37.236666667000065,
+              35000
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "attributes" : {
+        "OBJECTID" : 40,
+        "AMSID" : "OP MONTEREY STRIKE",
+        "ID" : "ACM:ROZ",
+        "NAME" : "EAGLE C",
+        "USE" : "ROA",
+        "EFFLEVEL" : "BRRA:350AGL-450AGL",
+        "MIN_HEIGHT" : 35000,
+        "MAX_HEIGHT" : 45000,
+        "EXT_HEIGHT" : 10000,
+        "created_user" : null,
+        "created_date" : null,
+        "last_edited_user" : null,
+        "last_edited_date" : null,
+        "SHAPE_Length" : 6.5416066453721671
+      },
+      "geometry" : {
+        "hasZ" : true,
+        "paths" : [
+          [
+            [
+              -120.67666666699995,
+              35.480000000000075,
+              35000
+            ],
+            [
+              -117.96388888899997,
+              34.373611111000059,
+              35000
+            ],
+            [
+              -115.84611111099997,
+              35.00416666700005,
+              35000
+            ],
+            [
+              -115.48944444399996,
+              36.360277778000068,
+              35000
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

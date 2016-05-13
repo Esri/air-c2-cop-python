@@ -30,9 +30,12 @@ AMSID|AMSID|Specifies the Air Mission Exercise or Operation Name
 ACM|Airspace Control Means|Specifies the type of Airspace control means
 NAME|Name|Specifies the type of Airspace control means identifier
 USE|Use|Specifies the airspace usage
+STATUS|Current Status|Flag to show if control measure is currently in use (ACTIVE or INACTIVE)
 EFFLEVEL|Effective Level|Specifies the vertical dimension of the effective level
 MIN_HEIGHT|Minimum Height|Specifies the minimum effective level
+MIN_HEIGHT_REF|Minimum Height Reference|Specifies what the minimum effective level is relative to (eg. MSL of AGL)
 MAX_HEIGHT|Maximum Height|Specifies the maximum effective level
+MAX_HEIGHT_REF|Maximum Height Reference|Specifies what the maximum effective level is relative to (eg. MSL of AGL)
 EXT_HEIGHT|Extrude Height|Specifies the difference between the minimum and maximum effective level
 
 

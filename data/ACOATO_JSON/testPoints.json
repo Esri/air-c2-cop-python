@@ -1,0 +1,168 @@
+{
+  "displayFieldName" : "",
+  "hasZ" : true,
+  "fieldAliases" : {
+    "OBJECTID" : "OBJECTID",
+    "AMSID" : "AMSID",
+    "ID" : "ID",
+    "NAME" : "NAME",
+    "USE" : "USE",
+    "EFFLEVEL" : "EFFLEVEL",
+    "MIN_HEIGHT" : "Minimum Height",
+    "MAX_HEIGHT" : "Maximum Height",
+    "EXT_HEIGHT" : "Extrude Height",
+    "created_user" : "created_user",
+    "created_date" : "created_date",
+    "last_edited_user" : "last_edited_user",
+    "last_edited_date" : "last_edited_date"
+  },
+  "geometryType" : "esriGeometryPoint",
+  "spatialReference" : {
+    "wkid" : 4326,
+    "latestWkid" : 4326
+  },
+  "fields" : [
+    {
+      "name" : "OBJECTID",
+      "type" : "esriFieldTypeOID",
+      "alias" : "OBJECTID"
+    },
+    {
+      "name" : "AMSID",
+      "type" : "esriFieldTypeString",
+      "alias" : "AMSID",
+      "length" : 20
+    },
+    {
+      "name" : "ID",
+      "type" : "esriFieldTypeString",
+      "alias" : "ID",
+      "length" : 20
+    },
+    {
+      "name" : "NAME",
+      "type" : "esriFieldTypeString",
+      "alias" : "NAME",
+      "length" : 20
+    },
+    {
+      "name" : "USE",
+      "type" : "esriFieldTypeString",
+      "alias" : "USE",
+      "length" : 10
+    },
+    {
+      "name" : "EFFLEVEL",
+      "type" : "esriFieldTypeString",
+      "alias" : "EFFLEVEL",
+      "length" : 50
+    },
+    {
+      "name" : "MIN_HEIGHT",
+      "type" : "esriFieldTypeDouble",
+      "alias" : "Minimum Height"
+    },
+    {
+      "name" : "MAX_HEIGHT",
+      "type" : "esriFieldTypeDouble",
+      "alias" : "Maximum Height"
+    },
+    {
+      "name" : "EXT_HEIGHT",
+      "type" : "esriFieldTypeDouble",
+      "alias" : "Extrude Height"
+    },
+    {
+      "name" : "created_user",
+      "type" : "esriFieldTypeString",
+      "alias" : "created_user",
+      "length" : 255
+    },
+    {
+      "name" : "created_date",
+      "type" : "esriFieldTypeDate",
+      "alias" : "created_date",
+      "length" : 8
+    },
+    {
+      "name" : "last_edited_user",
+      "type" : "esriFieldTypeString",
+      "alias" : "last_edited_user",
+      "length" : 255
+    },
+    {
+      "name" : "last_edited_date",
+      "type" : "esriFieldTypeDate",
+      "alias" : "last_edited_date",
+      "length" : 8
+    }
+  ],
+  "features" : [
+    {
+      "attributes" : {
+        "OBJECTID" : 43,
+        "AMSID" : "OP MONTEREY STRIKE",
+        "ID" : "ACM:ROZ",
+        "NAME" : "POINT A",
+        "USE" : "ROA",
+        "EFFLEVEL" : "BRRA:400AGL-400AGL",
+        "MIN_HEIGHT" : 40000,
+        "MAX_HEIGHT" : 40000,
+        "EXT_HEIGHT" : 0,
+        "created_user" : null,
+        "created_date" : null,
+        "last_edited_user" : null,
+        "last_edited_date" : null
+      },
+      "geometry" : {
+        "x" : -121.77111111099998,
+        "y" : 37.312222222000059,
+        "z" : 40000
+      }
+    },
+    {
+      "attributes" : {
+        "OBJECTID" : 44,
+        "AMSID" : "OP MONTEREY STRIKE",
+        "ID" : "ACM:ROZ",
+        "NAME" : "POINT B",
+        "USE" : "ROA",
+        "EFFLEVEL" : "BRRA:400AGL-400AGL",
+        "MIN_HEIGHT" : 40000,
+        "MAX_HEIGHT" : 40000,
+        "EXT_HEIGHT" : 0,
+        "created_user" : null,
+        "created_date" : null,
+        "last_edited_user" : null,
+        "last_edited_date" : null
+      },
+      "geometry" : {
+        "x" : -121.65638888899997,
+        "y" : 36.646666667000034,
+        "z" : 40000
+      }
+    },
+    {
+      "attributes" : {
+        "OBJECTID" : 45,
+        "AMSID" : "OP MONTEREY STRIKE",
+        "ID" : "ACM:ROZ",
+        "NAME" : "POINT C",
+        "USE" : "ROA",
+        "EFFLEVEL" : "BRRA:400AGL-400AGL",
+        "MIN_HEIGHT" : 40000,
+        "MAX_HEIGHT" : 40000,
+        "EXT_HEIGHT" : 0,
+        "created_user" : null,
+        "created_date" : null,
+        "last_edited_user" : null,
+        "last_edited_date" : null
+      },
+      "geometry" : {
+        "x" : -120.67666666699995,
+        "y" : 35.480000000000075,
+        "z" : 40000
+      }
+    }
+  ]
+}
