@@ -135,7 +135,7 @@ class ACOWriter:
         for row in valuesPoint:
             cursor.insertRow(row)            
         del cursor
-
+        
         utils.common.OutputMessage(logging.DEBUG, "{0} ACOWriter._insertGeometry() - Finish".format(time.ctime()))
 
     def _insertPeriods(self, targetWS, parentAMSID, parentId, periodsJson, periodsName):
