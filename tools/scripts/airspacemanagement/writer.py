@@ -76,7 +76,7 @@ class ACOWriter:
     def _insertGeometry(self, targetWS, amsId, sourceJson):
         utils.common.OutputMessage(logging.DEBUG, "{0} ACOWriter._insertGeometry() - Start".format(time.ctime()))
 
-        fields          = ['AMSID', 'ACM', 'NAME', 'USE', 'EFFLEVEL', 'MIN_HEIGHT', 'MAX_HEIGHT', 'EXT_HEIGHT', 'SHAPE@JSON']
+        fields          = ['AMSID', 'ACM', 'NAME', 'USE', 'EFFLEVEL', 'MIN_HEIGHT', 'MAX_HEIGHT', 'MIN_HEIGHT_REF', 'MAX_HEIGHT_REF', 'EXT_HEIGHT', 'SHAPE@JSON', 'Status']
         valuesPolygon   = []
         valuesLine      = []
         valuesPoint     = []
@@ -92,21 +92,23 @@ class ACOWriter:
                 level   = record['efflevel']['label']
                 min     = record['efflevel']['min_height']
                 max     = record['efflevel']['max_height']
+                min_ref     = record['efflevel']['min_height_ref']
+                max_ref     = record['efflevel']['max_height_ref']
                 extrude = record['efflevel']['ext_height']
                 geom    = json.dumps(record['geometry'])
                                 
                 if type.upper() == 'GEOLINE':
-                    valuesLine.append((amsId, id, name, use, level, min, max, extrude, geom))
+                    valuesLine.append((amsId, id, name, use, level, min, max, min_ref, max_ref, extrude, geom, 'INACTIVE'))
                 elif type.upper() == 'LINE':
-                    valuesLine.append((amsId, id, name, use, level, min, max, extrude, geom))
+                    valuesLine.append((amsId, id, name, use, level, min, max, min_ref, max_ref, extrude, geom, 'INACTIVE'))
                 elif type.upper() == 'CORRIDOR':
-                    valuesPolygon.append((amsId, id, name, use, level, min, max, extrude, geom))
+                    valuesPolygon.append((amsId, id, name, use, level, min, max, min_ref, max_ref, extrude, geom, 'INACTIVE'))
                 elif type.upper() == 'CIRCLE':
-                    valuesPolygon.append((amsId, id, name, use, level, min, max, extrude, geom))
+                    valuesPolygon.append((amsId, id, name, use, level, min, max, min_ref, max_ref, extrude, geom, 'INACTIVE'))
                 elif type.upper() == 'POINT':
-                    valuesPoint.append((amsId, id, name, use, level, min, max, extrude, geom))
+                    valuesPoint.append((amsId, id, name, use, level, min, max, min_ref, max_ref, extrude, geom, 'INACTIVE'))
                 elif type.upper() == 'POLYGON':
-                    valuesPolygon.append((amsId, id, name, use, level, min, max, extrude, geom))
+                    valuesPolygon.append((amsId, id, name, use, level, min, max, min_ref, max_ref, extrude, geom, 'INACTIVE'))
                 else:
                     utils.common.OutputMessage(logging.DEBUG, type.upper() + " is not a valid geometry")
             if ('period' in record) == True:
@@ -133,7 +135,7 @@ class ACOWriter:
         for row in valuesPoint:
             cursor.insertRow(row)            
         del cursor
-
+        
         utils.common.OutputMessage(logging.DEBUG, "{0} ACOWriter._insertGeometry() - Finish".format(time.ctime()))
 
     def _insertPeriods(self, targetWS, parentAMSID, parentId, periodsJson, periodsName):

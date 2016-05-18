@@ -1,0 +1,45 @@
+.classification {
+    height: 20px;
+    width: 100%;
+    background: #fff;
+    color: #000;
+    text-align: center;
+    border: 1px solid gray;
+    font-weight: 700;
+    padding: 0!important;
+    z-index: 999;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative
+}
+.classificationHidden {
+    display: none
+}
+.classificationInitial {
+    color: #000
+}
+.classification.bottomClassification {
+    position: fixed;
+    bottom: 0
+}
+.classification.unclassified {
+    background: green;
+    color: #fff
+}
+.classification.confidential {
+    background: #00f;
+    color: #fff
+}
+.classification.secret {
+    background: red;
+    color: #fff
+}
+.classification.topsecret {
+    background: #ff0
+}
+
+.map-view {
+    height: 94%;
+    width: 100%;
+}
