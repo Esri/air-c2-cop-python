@@ -171,15 +171,63 @@ class ATOWriter:
 
     def execute(self, sourceJson, targetWS):
         utils.common.OutputMessage(logging.DEBUG, "{0} ATOWriter.execute() - Start".format(time.ctime()))
-        self._insertGeometry(targetWS, '', sourceJson)
+        
+        #Check if header has EXER block or OPER block
+        if 'EXER' in sourceJson['header']:
+            id      = sourceJson['header']['EXER']['id']       
+        if 'OPER' in sourceJson['header']:
+            id      = sourceJson['header']['OPER']['id']        
+        
+        name    = sourceJson['header']['AMPN']['title']
+        file    = sourceJson['metadata']['filename']
 
+        self._insertHeader(targetWS, id, name, file)        
+        
+        genText    = sourceJson['header']
+        self._insertGenText(targetWS, id, genText)
+        
+        self._insertGeometry(targetWS, id, sourceJson)
+                
         utils.common.OutputMessage(logging.DEBUG, "{0} ATOWriter.execute() - Finish".format(time.ctime()))
 
         pass
 
+    def _insertHeader(self, targetWS, id, name, filename):
+        utils.common.OutputMessage(logging.DEBUG, "{0} ACOWriter._insertHeader() - Start".format(time.ctime()))
+
+        values  = [id, name, filename]
+
+        table   = '%s/AMS_RECORD' % (targetWS)
+        fields  = ['AMSID', 'NAME', 'FILENAME']
+
+        cursor  = arcpy.da.InsertCursor(table, fields)
+        row     = cursor.insertRow(values)
+
+        del row
+        del cursor
+
+        utils.common.OutputMessage(logging.DEBUG, "{0} ACOWriter._insertHeader() - Finish".format(time.ctime()))
+        
+    def _insertGenText(self, targetWS, amsId, file):
+        utils.common.OutputMessage(logging.DEBUG, "{0} ATOWriter._insertHeader() - Start".format(time.ctime()))
+       
+        genTextFields = ['AMSID','TextIndicator','Info']
+        genTextTable = '%s/ATO_GENTEXT' % (targetWS)
+        cursor  = arcpy.da.InsertCursor(genTextTable, genTextFields)
+        for row in file['GENTEXT']:
+          gentext = []
+          gentext.append(amsId)
+          gentext.append(row['TextIndicator'])
+          gentext.append(row['Info'])
+          if row['Info'] <> "":
+            cursor.insertRow(gentext)
+        del cursor
+        
+        utils.common.OutputMessage(logging.DEBUG, "{0} ATOWriter._insertHeader() - Finish".format(time.ctime()))
+
     def _insertGeometry(self, targetWS, amsId, sourceJson):
         utils.common.OutputMessage(logging.DEBUG, "{0} ATOWriter._insertGeometry() - Start".format(time.ctime()))
-        
+        utils.common.OutputMessage(logging.DEBUG, "The ASMID is: " + amsId)
         fields = []
         fields.append('AMSID')
         fields.append('TASK_COUNTRY')
@@ -206,7 +254,7 @@ class ATOWriter:
         fields.append('SHAPE@JSON')
         
         id = sourceJson['header']['EXER']['id']
-
+        
         valuesPoint = []
         for TaskGroupingCategory in sourceJson['Missions']:
             
@@ -247,16 +295,14 @@ class ATOWriter:
                         values.append(amsndat_ind['GTGTLOC']['dmpiDesc'])
                         values.append(amsndat_ind['GTGTLOC']['priority'])
                         values.append(json.dumps(amsndat_ind['GTGTLOC']['geometry']))
-                        valuesPoint.append(values)                                  
-        
-
+                        valuesPoint.append(values)                                 
         # Insert points
         table   = '%s/ATO_MISSION' % (targetWS)
         cursor  = arcpy.da.InsertCursor(table, fields)
         for row in valuesPoint:
             cursor.insertRow(row)
-        del cursor
-
+        del cursor       
+        
         utils.common.OutputMessage(logging.DEBUG, "{0} ATOWriter._insertGeometry() - Finish".format(time.ctime()))
 
 ###########################################################################

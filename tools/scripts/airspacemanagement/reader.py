@@ -389,13 +389,21 @@ class ProcessATOHeader:
     def processBlock(self, records):
         utils.common.OutputMessage(logging.DEBUG, "{0} ProcessATOHeader.processBlock() - Start".format(time.ctime()))
 
+        self._json['GENTEXT'] = []
+        
         for record in records:
             if record.startswith('EXER'):
                 self._json['EXER'] = airspacemanagement.parser.parseEXER(record)
+            elif record.startswith('OPER'):
+                self._json['OPER'] = airspacemanagement.parser.parseOPER(record)
+            elif record.startswith('AMPN'):
+                self._json['AMPN'] = airspacemanagement.parser.parseAMPN(record)
             elif record.startswith('MSGID'):
                 self._json['MSGID'] = airspacemanagement.parser.parseMSGID(record)
             elif record.startswith('TIMEFRAM'):
                 self._json['TIMEFRAM'] = airspacemanagement.parser._parseBlockTIMEFRAM(record)
+            elif record.startswith('GENTEXT'):
+                self._json['GENTEXT'].append(airspacemanagement.parser.parseGENTEXT(record))                 
         
         utils.common.OutputMessage(logging.DEBUG, "{0} ProcessATOHeader.processBlock() - Finish".format(time.ctime()))
 
@@ -427,8 +435,8 @@ class ProcessATOBlocks:
         utils.common.OutputMessage(logging.DEBUG, "{0} ProcessSingleBlock.processBlock() - Start".format(time.ctime()))
 
         taskGroup  = {}
-        taskUnit     = []
-
+        taskUnit   = []
+        
         currentRecordIndex = -1
         while currentRecordIndex < len(records) -1:
             currentRecordIndex += 1
@@ -446,9 +454,8 @@ class ProcessATOBlocks:
                 taskGroup['taskUnit'] = taskUnit
             elif records[currentRecordIndex].startswith('AMSNDAT'):
                 taskJson = self._processBlock(currentRecordIndex, records, year)
-                #taskJson['SORTORDER'] = len(taskUnit['tasks']) + 1
-                taskUnit['tasks'].append(taskJson)
-
+                taskUnit['tasks'].append(taskJson)  
+            
         utils.common.OutputMessage(logging.DEBUG, "{0} ProcessSingleBlock.processBlock() - Finish".format(time.ctime()))
 
         pass
@@ -481,8 +488,12 @@ class ProcessATOBlocks:
                 json['AMSNDAT']['GTGTLOC'] = airspacemanagement.parser.parseGTGTLOC(record,year)
                 currentRecordIndex += 1
                 pass
+            elif record.startswith('GENTEXT'):
+                # GENTEXT is captured at the ATO Header level no need to capture again within the AMSNDAT Block
+                currentRecordIndex += 1
+                pass
             elif record.startswith('AMSNDAT'):
-                processBlock = False
+                processBlock = False            
             else:
                 utils.common.OutputMessage(logging.DEBUG, "The record " + record + " does not start with a segment that is recognised")
                 currentRecordIndex += 1

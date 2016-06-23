@@ -795,6 +795,33 @@ def parseAMSNLOC(record, year):
     return AMSNLOC
 
 ###########################################################################
+# Parse a parseGENTEXT block.
+# Assume the parseGENTEXT block is in the form:
+# GENTEXT/TEXT INDICATOR/FREE TEXT
+# GENTEXT/GENERAL SPINS INFORMATION/This field then holds free text.....
+###########################################################################
+def parseGENTEXT(record):
+    utils.common.OutputMessage(logging.DEBUG, "{0} parseGENTEXT() - Start".format(time.ctime()))
+    
+    items = record.split('/')
+    
+    items.pop(0)
+    
+    GENTEXTkeys = ['TextIndicator', 'Info']    
+    
+    GENTEXTvalues = []    
+    
+    for i in items:
+        GENTEXTvalues.append(i)
+    
+    GENTEXT = dict(zip(GENTEXTkeys,GENTEXTvalues))
+    
+    GENTEXT['Info'] = GENTEXT['Info'].replace('\n','')
+    GENTEXT['Info'] = GENTEXT['Info'].replace('-','')
+                   
+    return GENTEXT
+    
+###########################################################################
 # Parse a TIMEFRAM block into JSON.
 # Assume the block is in the form:
 # TIMEFRAM/FROM:140600ZAPR2015/TO:150559ZAPR2015/ASOF:140920ZAPR2015//

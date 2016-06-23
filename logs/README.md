@@ -1,1 +1,1 @@
-Empty directory used by the airspacemanagement python script logs
+Empty directory used by the airspacemanagement python scripts 
