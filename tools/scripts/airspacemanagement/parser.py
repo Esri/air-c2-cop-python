@@ -622,7 +622,7 @@ def parseTASKUNIT(record):
     return TASKUNIT
     
 ############################################################################
-# Parse a AMSNDAT block, assumes block is in the form:
+# Parse a AMSNDAT (AIRCRAFT MISSION DATA) block, assumes block is in the form:
 # AMSNDAT/15JW4002/-/-/-/ASW/-/-/DEPLOC:EGQS/ARRLOC:EGQS//
 # AMSNDAT/MISSIONNO/AMCNO/PACKAGEID/COMMANDER/1STMISSIONTYPE/2NDMISSIONYPE/DEPARTURELOC/RECOVERYLOC//
 #
@@ -632,7 +632,7 @@ def parseAMSNDAT(record):
     items = record.split('/')    
     items.pop(0)
     
-    AMSNDATkeys = ['residualMissionIndicator', 'missionNo', 'airliftMSN', 'packageId', 'commander', 'COMAO', 'primaryMissionType', 'secondaryMissionType', 'alertStatus', 'missionRole', 'departureLocation', 'departureTime', 'recoveryLocation', 'recoveryTime']    
+    AMSNDATkeys = ['residualMissionIndicator', 'missionNo', 'missionType', 'packageId', 'commander', 'COMAO', 'primaryMissionType', 'secondaryMissionType', 'alertStatus', 'missionRole', 'departureLocation', 'departureTime', 'recoveryLocation', 'recoveryTime']    
       
     AMSNDATvalues = []
     
@@ -650,7 +650,7 @@ def parseAMSNDAT(record):
     return AMSNDAT
 
 ############################################################################
-# Parse a MSNACFT block, assumes block is in the form:
+# Parse a MSNACFT (INDIVIDUAL AIRCRAFT MISSION DATA) block, assumes block is in the form:
 # MSNACFT/1/OTHAC:ALOU/BLUEBIRD01/BA/-/140/30022//
 # MSNACFT/1/OTHAC:ALOU/BLUEBIRD01/BA/-/140/30022//
 #
@@ -660,7 +660,7 @@ def parseMSNACFT(record):
     items = record.split('/')
     items.pop(0)
     
-    MSNACFTkeys = ['aircraftCount', 'aircraftType', 'callsign', 'primeConfig', 'secondConfig', 'weaponsConfig', 'link16Callsign', 'TACCANChannel']    
+    MSNACFTkeys = ['aircraftCount', 'aircraftType', 'callsign', 'primeConfig', 'secondConfig', 'networkEnableWeapons', 'link16Callsign', 'TACCANChannel']    
     
     MSNACFTvalues = []
     
