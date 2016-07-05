@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="en"><Esri><CreaDate>20160518</CreaDate><CreaTime>04301700</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce><DataProperties><lineage><Process ToolSource="c:\program files (x86)\arcgis\desktop10.4\ArcToolbox\Toolboxes\Spatial Analyst Tools.tbx\RasterCalculator" Date="20160518" Time="043017">RasterCalculator "OutRas = SetNull("OperationalDataTest" &lt; 0,"OperationalDataTest")" \\AIRC2\Data\maowairc2\Tools\test1</Process></lineage></DataProperties></Esri></metadata>

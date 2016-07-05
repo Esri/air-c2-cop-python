@@ -12,15 +12,16 @@ Sections
 This template include scripts and related content for processing Air Control Orders (ACOs) and Air Tasking Orders (ATOs) from source text files (.aco and .ato) into geographic data suitable for presentation within ArcGIS.
 
 The download includes the following content:
-
-  + arcgispro - ArcGIS Pro project  
+  
+  + AirC2Weather - all the data and map documents required for the weather element of the template.
+  + arcgispro - ArcGIS Pro project 
   + arcmap - .mxd containing styled feature classes ready for publishing to ArcGIS server  
   + data - database schema for the processed files  
-  + files - sample ACO, ATO files to be processed  
+  + files - sample ACO, ATO files to be processed 
+  + gpservices - viewshed analysis tools 
   + logs - container for log files to be created  
   + output - container for output files to be created  
   + tools - processing toolbox and related scripts  
-
 
 ##Instructions##
 
@@ -31,7 +32,7 @@ The download includes the following content:
 3. Double click the ProcessACO script
 4. Specify parameters:  
   + Source File: the source ACO file to be processed (found in files folder)  
-  + Target Workspace: the target workspace containing the feature classes to write the ACO to  
+  + Target Workspace: this should be the CurrentOps geodatabase located within the data folder 
   + Log Level: (Optional) - select DEBUG for extended diagnostics  
 
 To process an ATO follow the same steps as above but select the ProcessATO tool.

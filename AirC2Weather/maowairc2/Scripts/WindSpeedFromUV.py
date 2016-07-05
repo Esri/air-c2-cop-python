@@ -2,7 +2,7 @@
 
 # Description: Python raster function that extracts wind speed from u and v components of wind.
 
-# Date Edited: 24/03/2015
+# Date Edited: 02/06/2016
 
 #----------------------------------------------------------------------------------------------------------------------
 
@@ -54,10 +54,10 @@ class WindSpeedFromUV():
 
 
     def updatePixels(self, tlc, size, props, **pixelBlocks):
-        u = np.array(pixelBlocks['u_pixels'], dtype='f4')        
-        v = np.array(pixelBlocks['v_pixels'], dtype='f4')
+        u = np.array(pixelBlocks['u_pixels'], dtype='f4') [0]       
+        v = np.array(pixelBlocks['v_pixels'], dtype='f4') [0]
 
-        outBlock = np.sqrt(np.square(u) + np.square(v))
+        outBlock = np.sqrt(u**2 + v**2)
         pixelBlocks['output_pixels'] = outBlock.astype(props['pixelType'])
         return pixelBlocks
 

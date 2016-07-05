@@ -4,11 +4,12 @@
 # wind direction being fed into this function is the normal meterological convention of the direction the wind is coming
 # from and not the direction it is blowing.
 
-# Date Edited: 22/09/2015
+# Date Edited: 02/06/2016
 
 #----------------------------------------------------------------------------------------------------------------------
 
 import numpy as np
+
 
 
 class WindDirectionFromUV():
@@ -49,19 +50,19 @@ class WindDirectionFromUV():
 
     def updateRasterInfo(self, **kwargs):
         kwargs['output_info']['bandCount'] = 1      # output is a single band raster
-        kwargs['output_info']['statistics'] = ({'minimum': 0, 'maximum': 360}, )
+        kwargs['output_info']['statistics'] = ({'minimum': -91, 'maximum': -89}, )
         kwargs['output_info']['histogram'] = ()     # we know nothing about the histogram of the outgoing raster.
         kwargs['output_info']['pixelType'] = 'f4'
         return kwargs
 
 
     def updatePixels(self, tlc, size, props, **pixelBlocks):
-        u = np.array(pixelBlocks['u_pixels'], dtype='f4')        
-        v = np.array(pixelBlocks['v_pixels'], dtype='f4')
+        u = np.array(pixelBlocks['u_pixels'], dtype='f4')[0]       
+        v = np.array(pixelBlocks['v_pixels'], dtype='f4')[0]
 
         #Getting the UV components of wind into the correct orientation:
-        wind_abs = sqrt(u^2 + v^2)
-        wind_dir_trig_to = atan2(u/wind_abs, v/wind_abs)
+        wind_abs = np.sqrt(u**2 + v**2)
+        wind_dir_trig_to_degrees = np.arctan2(u/wind_abs, v/wind_abs)
         
         #Then you must convert this wind vector to the meteorological convention of the direction the wind is coming from:
         #wind_dir_trig_to_degrees = wind_dir_trig_to * 180/pi
@@ -71,8 +72,8 @@ class WindDirectionFromUV():
     
         outblock = 90 - wind_dir_trig_from_degrees
         
-##        outBlock = np.degrees (np.arctan2(u, v)) + 180
-        pixelBlocks['output_pixels'] = outBlock.astype(props['pixelType'])
+        ##      outBlock = np.degrees(np.arctan2(u, v)) + 180
+        pixelBlocks['output_pixels'] = outblock.astype(props['pixelType'])
         return pixelBlocks
 
 
