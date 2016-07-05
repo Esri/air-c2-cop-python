@@ -3,6 +3,9 @@
   <Metadata>
     <MDI key="DataType">Generic</MDI>
   </Metadata>
+  <Metadata domain="Esri">
+    <MDI key="PyramidResamplingType">NEAREST</MDI>
+  </Metadata>
   <PAMRasterBand band="1">
     <Description>GTOP_30</Description>
     <NoDataValue>2.14748364700000E+009</NoDataValue>
