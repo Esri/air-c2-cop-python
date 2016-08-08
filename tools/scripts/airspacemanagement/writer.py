@@ -62,7 +62,7 @@ class ACOWriter:
 
         values  = [id, name, filename]
 
-        table   = '%s/AMS_RECORD' % (targetWS)
+        table   = '%s/AirC2_AMS_RECORD' % (targetWS)
         fields  = ['AMSID', 'NAME', 'FILENAME']
 
         cursor  = arcpy.da.InsertCursor(table, fields)
@@ -106,7 +106,7 @@ class ACOWriter:
             if ('period' in record) == True:
                 self._insertPeriods(targetWS, amsId, id, record['period'], record['name'])
 
-        tables = {str('%s/ACO_POLYGON' % (targetWS)):valuesPolygon,str('%s/ACO_LINE' % (targetWS)):valuesLine,str('%s/ACO_POINT' % (targetWS)):valuesPoint}
+        tables = {str('%s/AirC2_ACO_POLYGON' % (targetWS)):valuesPolygon,str('%s/AirC2_ACO_LINE' % (targetWS)):valuesLine,str('%s/AirC2_ACO_POINT' % (targetWS)):valuesPoint}
         
         for key in tables:          
           cursor  = arcpy.da.InsertCursor(key, fields)
@@ -126,7 +126,7 @@ class ACOWriter:
             record = item['APERIOD']
             values.append((parentAMSID, parentId, record['type'], item['SORTORDER'], record['start'], record['stop'], record['frequency'], record['duration'], periodsName))
 
-        table   = '%s/ACO_PERIOD' % (targetWS)
+        table   = '%s/AirC2_ACO_PERIOD' % (targetWS)
         cursor  = arcpy.da.InsertCursor(table, fields)
         for row in values:
             cursor.insertRow(row)
@@ -175,7 +175,7 @@ class ATOWriter:
 
         values  = [id, name, filename]
 
-        table   = '%s/AMS_RECORD' % (targetWS)
+        table   = '%s/AirC2_AMS_RECORD' % (targetWS)
         fields  = ['AMSID', 'NAME', 'FILENAME']
 
         cursor  = arcpy.da.InsertCursor(table, fields)
@@ -190,7 +190,7 @@ class ATOWriter:
         utils.common.OutputMessage(logging.DEBUG, "{0} ATOWriter._insertHeader() - Start".format(time.ctime()))
        
         genTextFields = ['AMSID','TextIndicator','Info']
-        genTextTable = '%s/ATO_GENTEXT' % (targetWS)
+        genTextTable = '%s/AirC2_ATO_GENTEXT' % (targetWS)
         cursor  = arcpy.da.InsertCursor(genTextTable, genTextFields)
         for row in file['GENTEXT']:
           gentext = []
@@ -258,7 +258,7 @@ class ATOWriter:
                         values.append(json.dumps(amsndat_ind['GTGTLOC']['geometry']))
                         valuesPoint.append(values)                                 
         # Insert points
-        table   = '%s/ATO_MISSION' % (targetWS)
+        table   = '%s/AirC2_ATO_MISSION' % (targetWS)
         cursor  = arcpy.da.InsertCursor(table, fields)
         for row in valuesPoint:
             cursor.insertRow(row)

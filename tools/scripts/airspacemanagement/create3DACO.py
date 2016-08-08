@@ -2,13 +2,10 @@
 
 ###############################################################################
 # Authors: Anthony Giles, Helyx SIS, Feb 2016
-#
+# 
 ###############################################################################
 
 import arcpy
-
-#elev = r"C:\GeoData\Airc2\data\Elevation\GTOP30"
-#fc = r"C:\GeoData\Airc2\data\ACOATOData.gdb\ACO_POLYGON"
 
 fc      = arcpy.GetParameterAsText(0)
 elev    = arcpy.GetParameterAsText(1)
@@ -18,8 +15,8 @@ extrusions = []
 
 fields = ['OBJECTID','MIN_HEIGHT','MAX_HEIGHT','SHAPE@',"NAME"]
 
-if arcpy.Exists('%s/ACO_POLYGON_3D' % (targetWS)):
-    arcpy.Delete_management('%s/ACO_POLYGON_3D' % (targetWS))      
+if arcpy.Exists('%s/AirC2_ACO_POLYGON_3D' % (targetWS)):
+    arcpy.Delete_management('%s/AirC2_ACO_POLYGON_3D' % (targetWS))      
 
 with arcpy.da.SearchCursor(fc, fields) as cursor:
     for row in cursor:
@@ -38,20 +35,20 @@ with arcpy.da.SearchCursor(fc, fields) as cursor:
         #clip original elevation to feature extent
         arcpy.Clip_management(elev, extent, "in_memory\clip", '#', '#', "NONE", "NO_MAINTAIN_EXTENT")
 
-        #add minimum height values to clipped elevation 
-        raster_min = arcpy.sa.Plus(r"in_memory\clip",row[1])
-        raster_min.save(r"in_memory\elev_min")
+        #make sure the clipped elevation does not contain any NO_DATA
+        arcpy.gp.RasterCalculator_sa("Con(IsNull('in_memory\clip'), 0, 'in_memory\clip')", "in_memory\clip_NoData")
+
+        #add minimum height values to clipped elevation in metres not feet 
+        raster_min = arcpy.sa.Plus(r"in_memory\clip_NoData",int(row[1]/3.2808399))
 
         #convert to tin to use in the extrude between process - tin cannot be created in_memory
-        arcpy.ddd.RasterTin(r"in_memory\elev_min", 'tin_min')
+        arcpy.ddd.RasterTin(raster_min , 'tin_min')
         
-        #add maximum height values to clipped elevation
-        raster_max = arcpy.sa.Plus("in_memory\clip",row[2])
-        raster_max.save(r"in_memory\elev_max")
+        #add maximum height values to clipped elevation in metres not feet
+        raster_max = arcpy.sa.Plus("in_memory\clip_NoData",int(row[2]/3.2808399))
 
         #convert to tin to use in the extrude between process  - tin cannot be created in_memory
-        #arcpy.ddd.RasterTin(r"in_memory\elev_max", '%s/tin_max' % (targetWS))
-        arcpy.ddd.RasterTin(r"in_memory\elev_max", 'tin_max')
+        arcpy.ddd.RasterTin(raster_max, 'tin_max')
 
         #ensure we have a unique name for the temp feature class
         outMP = arcpy.CreateUniqueName("extrusion", "in_memory")
@@ -62,7 +59,7 @@ with arcpy.da.SearchCursor(fc, fields) as cursor:
         extrusions.append(outMP)
 
 #merge all temp feature classes together into a single feature class        
-arcpy.Merge_management(extrusions, '%s/ACO_POLYGON_3D' % (targetWS))
+arcpy.Merge_management(extrusions, '%s/AirC2_ACO_POLYGON_3D' % (targetWS))
 
 #tidy up 
 arcpy.Delete_management('tin_min')

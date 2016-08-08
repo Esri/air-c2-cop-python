@@ -1,0 +1,1270 @@
+{
+  "type" : "CIMMapDocument",
+  "version" : "1.2.0",
+  "build" : 5023,
+  "mapDefinition" : {
+    "type" : "CIMMap",
+    "name" : "Air C2 Overlay",
+    "uRI" : "CIMPATH=military_overlay_map1/map.xml",
+    "sourceModifiedTime" : {
+      "type" : "TimeInstant",
+      "start" : 978336000000
+    },
+    "metadataURI" : "CIMPATH=Metadata/4627d2818e28b4d157761af9512a2928.xml",
+    "illumination" : {
+      "type" : "CIMIlluminationProperties",
+      "ambientLight" : 75,
+      "sunPositionX" : -0.61237243569579003,
+      "sunPositionY" : 0.61237243569579003,
+      "sunPositionZ" : 0.5,
+      "illuminationSource" : "AbsoluteSunPosition",
+      "sunAzimuth" : 315,
+      "sunAltitude" : 30
+    },
+    "layers" : [
+      "CIMPATH=air_c2_overlay/installations_and_infrastructures.xml"
+    ],
+    "defaultViewingMode" : "Map",
+    "mapType" : "Map",
+    "defaultExtent" : {
+      "xmin" : -128.06633356720721,
+      "ymin" : 31.525159236461235,
+      "xmax" : -110.491525757091,
+      "ymax" : 40.968615378384882,
+      "spatialReference" : {
+        "wkid" : 4326,
+        "latestWkid" : 4326
+      }
+    },
+    "generalPlacementProperties" : {
+      "type" : "CIMMaplexGeneralPlacementProperties",
+      "invertedLabelTolerance" : 2,
+      "unplacedLabelColor" : {
+        "type" : "CIMRGBColor",
+        "values" : [
+          255,
+          0,
+          0,
+          100
+        ]
+      },
+      "keyNumberGroups" : [
+        {
+          "type" : "CIMMaplexKeyNumberGroup",
+          "delimiterCharacter" : ".",
+          "horizontalAlignment" : "Left",
+          "maximumNumberOfLines" : 20,
+          "minimumNumberOfLines" : 2,
+          "name" : "Default",
+          "numberResetType" : "None"
+        }
+      ],
+      "placementQuality" : "High"
+    },
+    "snappingProperties" : {
+      "type" : "CIMSnappingProperties",
+      "xYTolerance" : 10,
+      "xYToleranceUnit" : "SnapXYToleranceUnitPixel",
+      "snapToSketchEnabled" : false,
+      "snapRequestType" : "SnapRequestType_GeometricAndVisualSnapping"
+    },
+    "spatialReference" : {
+      "wkid" : 4326,
+      "latestWkid" : 4326
+    },
+    "timeDisplay" : {
+      "type" : "CIMMapTimeDisplay",
+      "defaultTimeIntervalUnits" : "esriTimeUnitsUnknown",
+      "timeValue" : {
+        "type" : "TimeExtent",
+        "start" : null,
+        "end" : null,
+        "empty" : false
+      },
+      "timeRelation" : "esriTimeRelationOverlaps"
+    },
+    "referenceScale" : 4970630.1466172133,
+    "includeMaximumInScaleRanges" : true
+  },
+  "layerDefinitions" : [
+    {
+      "type" : "CIMFeatureLayer",
+      "name" : "Land Installations",
+      "uRI" : "CIMPATH=air_c2_overlay/installations_and_infrastructures.xml",
+      "sourceModifiedTime" : {
+        "type" : "TimeInstant",
+        "start" : 978336000000
+      },
+      "metadataURI" : "CIMPATH=Metadata/0edca7bfbdbf73e9b19fcc037b996184.xml",
+      "description" : "Installations and Infrastructures",
+      "layerElevation" : {
+        "type" : "CIMLayerElevationSurface"
+      },
+      "expanded" : true,
+      "layerType" : "Operational",
+      "showLegends" : true,
+      "visibility" : true,
+      "displayCacheType" : "Permanent",
+      "maxDisplayCacheAge" : 5,
+      "showPopups" : true,
+      "serviceLayerID" : -1,
+      "featureElevationExpression" : "Shape.Z",
+      "featureTable" : {
+        "type" : "CIMFeatureTable",
+        "displayField" : "identity",
+        "editable" : true,
+        "dataConnection" : {
+          "type" : "CIMStandardDataConnection",
+          "workspaceConnectionString" : "ENCRYPTED_PASSWORD=00022e682b576d61384a55356a586866426c417a3071684c333164364f2b325072726a4438426243306657577635733d2a00;SERVER=airc2;INSTANCE=sde:postgresql:airc2;DBCLIENT=postgresql;DB_CONNECTION_PROPERTIES=airc2;DATABASE=military;USER=sde;VERSION=sde.DEFAULT;AUTHENTICATION_MODE=DBMS",
+          "workspaceFactory" : "SDE",
+          "dataset" : "military.sde.Installations",
+          "datasetType" : "esriDTAny"
+        },
+        "studyAreaSpatialRel" : "esriSpatialRelUndefined",
+        "searchOrder" : "esriSearchOrderSpatial"
+      },
+      "featureTemplates" : [
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Unspecified Installation",
+          "name" : "Unspecified Installation",
+          "tags" : "Land Installation; Military; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "entity",
+              110000,
+              "symbolentity",
+              0
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Emergency Operation ",
+          "name" : "Installation : Emergency Operation",
+          "tags" : "Emergency Operation; Land Installation; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "entity",
+              112200,
+              "symbolentity",
+              112200
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Law Enforcement ",
+          "name" : "Installation : Law Enforcement",
+          "tags" : "Land Installation; Law Enforcement; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "entity",
+              112100,
+              "symbolentity",
+              112100
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Government Leadership ",
+          "name" : "Installation : Government Leadership",
+          "tags" : "Government Leadership; Land Installation; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "entity",
+              110900,
+              "symbolentity",
+              110900
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation : Tented Camp : Displaced Persons / Refugee / Evacuees Camp",
+          "name" : "Installation : Tented Camp : Displaced Persons / Refugee / Evacuees Camp",
+          "tags" : "Displaced Persons; Evacuees Camp; Installation; Point; Refugee; Tented Camp",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "entity",
+              111901,
+              "symbolentity",
+              111901
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Infrastructure (Land Installation) : Transportation ",
+          "name" : "Infrastructure : Transportation",
+          "tags" : "Infrastructure; Land Installation; Point; Transportation",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "entity",
+              121300,
+              "symbolentity",
+              121300
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Infrastructure (Land Installation) : Water Supply ",
+          "name" : "Infrastructure : Water Supply",
+          "tags" : "Infrastructure; Land Installation; Point; Water Supply Infrastructure",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "entity",
+              121400,
+              "symbolentity",
+              121400
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Infrastructure (Land Installation) : Telecommunications ",
+          "name" : "Infrastructure : Telecommunications",
+          "tags" : "Infrastructure; Land Installation; Point; Telecommunications",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "entity",
+              121200,
+              "symbolentity",
+              121200
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Infrastructure (Land Installation) : Military",
+          "name" : "Infrastructure : Military",
+          "tags" : "Infrastructure; Land Installation; Military; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "entity",
+              121200,
+              "symbolentity",
+              120800
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Infrastructure (Land Installation) : Energy Facility ",
+          "name" : "Infrastructure : Energy Facility",
+          "tags" : "Energy Facility; Infrastructure; Land Installation; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "entity",
+              120500,
+              "symbolentity",
+              120500
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Infrastructure (Land Installations) : Commercial",
+          "name" : "Infrastructure : Commercial",
+          "tags" : "Commercial; Infrastructure; Land Installation; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "entity",
+              120300,
+              "symbolentity",
+              120300
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Infrastructure (Land Installation) : Government Site Infrastructure",
+          "name" : "Infrastructure : Government Site Infrastructure",
+          "tags" : "Government Site; Infrastructure; Land Installation; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "entity",
+              120600,
+              "symbolentity",
+              120600
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Infrastructure (Land Installation) : Medical Infrastructure",
+          "name" : "Infrastructure : Medical Infrastructure",
+          "tags" : "Infrastructure; Land Installation; Medical; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "entity",
+              120701,
+              "symbolentity",
+              120701
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Infrastructure (Land Installation) : Agriculture and Food",
+          "name" : "Infrastructure : Agriculture and Food",
+          "tags" : "Agriculture; Food; Infrastructure; Land Installation; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              120100
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Infrastructure (Land Installation) : Banking- Finance- Insurance",
+          "name" : "Infrastructure : Banking- Finance- Insurance",
+          "tags" : "Banking; Finance; Infrastructure; Insurance; Land Installation; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              120200
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Infrastructure (Land Installation) : Educational Facilities",
+          "name" : "Infrastructure : Educational Facilities",
+          "tags" : "Educational Facilities; Infrastructure; Land Installation; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              120400
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Infrastructure (Land Installation) : Postal Services",
+          "name" : "Infrastructure : Postal Services",
+          "tags" : "Infrastructure; Land Installation; Point; Postal Services",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              120900
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Infrastructure (Land Installation) : Public Venues",
+          "name" : "Infrastructure : Public Venues",
+          "tags" : "Infrastructure; Land Installation; Point; Public Venues",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              121000
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Infrastructure (Land Installation) : Special Needs",
+          "name" : "Infrastructure : Special Needs",
+          "tags" : "Infrastructure; Land Installation; Point; Special Needs",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              121100
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Aircraft Production/Assembly",
+          "name" : "Installation : Aircraft Production/Assembly",
+          "tags" : "Aircraft Production/Assembly; Installation; Land Installation; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              110100
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Ammunition and Explosives Assembly",
+          "name" : "Installation : Ammunition and Explosives Assembly",
+          "tags" : "Ammunition; Assembly; Explosives; Land Installation; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              110200
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Ammunition Cache",
+          "name" : "Installation : Ammunition Cache",
+          "tags" : "Ammunition Cache; Land Installation; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              110300
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Armament Production",
+          "name" : "Installation : Armament Production",
+          "tags" : "Armament Production; Installation; Land Installation; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              110400
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Black List Location",
+          "name" : "Installation : Black List Location",
+          "tags" : "Black List Location; Land Installation; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              110500
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : CBRN",
+          "name" : "Installation : CBRN",
+          "tags" : "CBRN; Land Installation; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              110600
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Engineering Equipment Production",
+          "name" : "Installation : Engineering Equipment Production",
+          "tags" : "Engineering Equipment Production; Installation; Land Installation; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              110700
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Equipment Manufacture",
+          "name" : "Installation : Equipment Manufacture",
+          "tags" : "Equipment Manufacture; Land Installation; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              110800
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Mass Grave Site",
+          "name" : "Installation : Mass Grave Site",
+          "tags" : "Land Installation; Mass Grave Sit; Mass Grave Site; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              111100
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Materiel",
+          "name" : "Installation : Materiel",
+          "tags" : "Land Installation; Material; Materiel; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              111200
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Mine",
+          "name" : "Installation : Mine",
+          "tags" : "Land Installation; Mine; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              111300
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Missile and Space System Production",
+          "name" : "Installation : Missile and Space System Production",
+          "tags" : "Land Installation; Missile and Space System Production; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              111400
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Nuclear (Non CBRN Defense)",
+          "name" : "Installation : Nuclear (Non CBRN Defense)",
+          "tags" : "Land Installation; Non CBRN; Nuclear; Point",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              111500
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Printed Media",
+          "name" : "Installation : Printed Media",
+          "tags" : "Installation; Land Installation; Point; Printed Media",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              111600
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Safe House",
+          "name" : "Installation : Safe House",
+          "tags" : "Land Installation; Point; Safe House",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              111700
+            ]
+          }
+        },
+        {
+          "type" : "CIMFeatureTemplate",
+          "description" : "Installation (Land Installation) : Warehouse/Storage Facility",
+          "name" : "Installation : Warehouse/Storage Facility",
+          "tags" : "Land Installation; Point; Storage Facility; Warehouse",
+          "toolProgID" : "2a8b3331-5238-4025-972e-452a69535b06",
+          "defaultValues" : {
+            "type" : "PropertySet",
+            "propertySetItems" : [
+              "identity",
+              1,
+              "context",
+              0,
+              "symbolset",
+              20,
+              "symbolentity",
+              112000
+            ]
+          }
+        }
+      ],
+      "htmlPopupEnabled" : true,
+      "selectable" : true,
+      "labelClasses" : [
+        {
+          "type" : "CIMLabelClass",
+          "expression" : "[identity]",
+          "expressionEngine" : "VBScript",
+          "featuresToLabel" : "AllVisibleFeatures",
+          "maplexLabelPlacementProperties" : {
+            "type" : "CIMMaplexLabelPlacementProperties",
+            "featureType" : "Point",
+            "avoidPolygonHoles" : true,
+            "canOverrunFeature" : true,
+            "canPlaceLabelOutsidePolygon" : true,
+            "canRemoveOverlappingLabel" : true,
+            "canStackLabel" : true,
+            "connectionType" : "Unambiguous",
+            "constrainOffset" : "NoConstraint",
+            "contourAlignmentType" : "Page",
+            "contourLadderType" : "Straight",
+            "contourMaximumAngle" : 90,
+            "enableConnection" : true,
+            "enablePointPlacementPriorities" : true,
+            "featureWeight" : 0,
+            "fontHeightReductionLimit" : 4,
+            "fontHeightReductionStep" : 0.5,
+            "fontWidthReductionLimit" : 90,
+            "fontWidthReductionStep" : 5,
+            "graticuleAlignmentType" : "Straight",
+            "keyNumberGroupName" : "Default",
+            "labelBuffer" : 15,
+            "labelLargestPolygon" : true,
+            "labelPriority" : -1,
+            "labelStackingProperties" : {
+              "type" : "CIMMaplexLabelStackingProperties",
+              "stackAlignment" : "ChooseBest",
+              "maximumNumberOfLines" : 3,
+              "minimumNumberOfCharsPerLine" : 3,
+              "maximumNumberOfCharsPerLine" : 24,
+              "separators" : [
+                {
+                  "type" : "CIMMaplexStackingSeparator",
+                  "separator" : " ",
+                  "splitAfter" : true
+                },
+                {
+                  "type" : "CIMMaplexStackingSeparator",
+                  "separator" : ",",
+                  "visible" : true,
+                  "splitAfter" : true
+                }
+              ]
+            },
+            "lineFeatureType" : "General",
+            "linePlacementMethod" : "OffsetCurvedFromLine",
+            "maximumLabelOverrun" : 36,
+            "maximumLabelOverrunUnit" : "Point",
+            "minimumFeatureSizeUnit" : "Map",
+            "multiPartOption" : "OneLabelPerPart",
+            "offsetAlongLineProperties" : {
+              "type" : "CIMMaplexOffsetAlongLineProperties",
+              "placementMethod" : "BestPositionAlongLine",
+              "labelAnchorPoint" : "CenterOfLabel",
+              "distanceUnit" : "Percentage",
+              "useLineDirection" : true
+            },
+            "pointExternalZonePriorities" : {
+              "type" : "CIMMaplexExternalZonePriorities",
+              "aboveLeft" : 4,
+              "aboveCenter" : 2,
+              "aboveRight" : 1,
+              "centerRight" : 3,
+              "belowRight" : 5,
+              "belowCenter" : 7,
+              "belowLeft" : 8,
+              "centerLeft" : 6
+            },
+            "pointPlacementMethod" : "AroundPoint",
+            "polygonAnchorPointType" : "GeometricCenter",
+            "polygonBoundaryWeight" : 0,
+            "polygonExternalZones" : {
+              "type" : "CIMMaplexExternalZonePriorities",
+              "aboveLeft" : 4,
+              "aboveCenter" : 2,
+              "aboveRight" : 1,
+              "centerRight" : 3,
+              "belowRight" : 5,
+              "belowCenter" : 7,
+              "belowLeft" : 8,
+              "centerLeft" : 6
+            },
+            "polygonFeatureType" : "General",
+            "polygonInternalZones" : {
+              "type" : "CIMMaplexInternalZonePriorities",
+              "center" : 1
+            },
+            "polygonPlacementMethod" : "CurvedInPolygon",
+            "primaryOffset" : 1,
+            "primaryOffsetUnit" : "Point",
+            "removeExtraWhiteSpace" : true,
+            "repetitionIntervalUnit" : "Map",
+            "rotationProperties" : {
+              "type" : "CIMMaplexRotationProperties",
+              "rotationType" : "Arithmetic",
+              "alignmentType" : "Straight"
+            },
+            "secondaryOffset" : 100,
+            "strategyPriorities" : {
+              "type" : "CIMMaplexStrategyPriorities",
+              "stacking" : 1,
+              "overrun" : 2,
+              "fontCompression" : 3,
+              "fontReduction" : 4,
+              "abbreviation" : 5
+            },
+            "thinningDistanceUnit" : "Point",
+            "truncationMarkerCharacter" : ".",
+            "truncationMinimumLength" : 1,
+            "truncationPreferredCharacters" : "aeiou"
+          },
+          "name" : "Class 1",
+          "priority" : -1,
+          "standardLabelPlacementProperties" : {
+            "type" : "CIMStandardLabelPlacementProperties",
+            "featureType" : "Line",
+            "featureWeight" : "Low",
+            "labelWeight" : "High",
+            "numLabelsOption" : "OneLabelPerName",
+            "lineLabelPosition" : {
+              "type" : "CIMStandardLineLabelPosition",
+              "above" : true,
+              "inLine" : true,
+              "parallel" : true
+            },
+            "lineLabelPriorities" : {
+              "type" : "CIMStandardLineLabelPriorities",
+              "aboveStart" : 3,
+              "aboveAlong" : 3,
+              "aboveEnd" : 3,
+              "centerStart" : 3,
+              "centerAlong" : 3,
+              "centerEnd" : 3,
+              "belowStart" : 3,
+              "belowAlong" : 3,
+              "belowEnd" : 3
+            },
+            "pointPlacementMethod" : "AroundPoint",
+            "pointPlacementPriorities" : {
+              "type" : "CIMStandardPointPlacementPriorities",
+              "aboveLeft" : 2,
+              "aboveCenter" : 2,
+              "aboveRight" : 1,
+              "centerLeft" : 3,
+              "centerRight" : 2,
+              "belowLeft" : 3,
+              "belowCenter" : 3,
+              "belowRight" : 2
+            },
+            "rotationType" : "Arithmetic",
+            "polygonPlacementMethod" : "AlwaysHorizontal"
+          },
+          "textSymbol" : {
+            "type" : "CIMSymbolReference",
+            "symbol" : {
+              "type" : "CIMTextSymbol",
+              "blockProgression" : "TTB",
+              "depth3D" : 1,
+              "extrapolateBaselines" : true,
+              "fontEffects" : "Normal",
+              "fontEncoding" : "Unicode",
+              "fontFamilyName" : "Tahoma",
+              "fontStyleName" : "Regular",
+              "fontType" : "Unspecified",
+              "haloSize" : 1,
+              "height" : 10,
+              "hinting" : "Default",
+              "horizontalAlignment" : "Left",
+              "kerning" : true,
+              "letterWidth" : 100,
+              "ligatures" : true,
+              "lineGapType" : "ExtraLeading",
+              "symbol" : {
+                "type" : "CIMPolygonSymbol",
+                "symbolLayers" : [
+                  {
+                    "type" : "CIMSolidFill",
+                    "enable" : true,
+                    "color" : {
+                      "type" : "CIMRGBColor",
+                      "values" : [
+                        0,
+                        0,
+                        0,
+                        100
+                      ]
+                    }
+                  }
+                ]
+              },
+              "textCase" : "Normal",
+              "textDirection" : "LTR",
+              "verticalAlignment" : "Bottom",
+              "verticalGlyphOrientation" : "Right",
+              "wordSpacing" : 100,
+              "billboardMode3D" : "FaceNearPlane"
+            }
+          },
+          "useCodedValue" : false,
+          "visibility" : true,
+          "iD" : -1
+        }
+      ],
+      "renderer" : {
+        "type" : "CIMDictionaryRenderer",
+        "dictionaryName" : "MIL2525D",
+        "fieldMap" : [
+          {
+            "type" : "CIMStringMap",
+            "key" : "identity",
+            "value" : "identity"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "symbolset",
+            "value" : "symbolset"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "symbolentity",
+            "value" : "symbolentity"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "modifier1",
+            "value" : "modifier1"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "modifier2",
+            "value" : "modifier2"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "echelon"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "mobility"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "array"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "context",
+            "value" : "context"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "indicator",
+            "value" : "indicator"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "status"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "operationalcondition",
+            "value" : "operationalcondition"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "specialentitysubtype"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "civilian",
+            "value" : "civilian"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "sidc"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "additionalinformation",
+            "value" : "additionalinformation"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "additionalinformation2"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "combateffectiveness",
+            "value" : "combateffectiveness"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "commonidentifier"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "credibility",
+            "value" : "credibility"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "datetimeexpired",
+            "value" : "datetimeexpired"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "datetimevalid",
+            "value" : "datetimevalid"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "distance"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "equipmentteardowntime"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "higherformation"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "idmode",
+            "value" : "idmode"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "platformtype"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "quantity"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "reinforced"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "reliability",
+            "value" : "reliability"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "sigintmobility"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "speed",
+            "value" : "speed"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "staffcomment",
+            "value" : "staffcomment"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "targetdesignator"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "type"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "uniquedesignation",
+            "value" : "uniquedesignation"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "uniquedesignation2"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "x",
+            "value" : "x"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "y",
+            "value" : "y"
+          },
+          {
+            "type" : "CIMStringMap",
+            "key" : "z",
+            "value" : "z"
+          }
+        ]
+      },
+      "scaleSymbols" : true,
+      "snappable" : true
+    }
+  ],
+  "binaryReferences" : [
+    {
+      "type" : "CIMBinaryReference",
+      "uRI" : "CIMPATH=Metadata/0edca7bfbdbf73e9b19fcc037b996184.xml",
+      "data" : "<?xml version=\"1.0\"?>\r\n<metadata xml:lang=\"en\"><Esri><CreaDate>20151102</CreaDate><CreaTime>14275100</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce></Esri><dataIdInfo><idCitation><resTitle>Land Installations</resTitle></idCitation><searchKeys><keyword>ArcGIS for the Military</keyword><keyword>Defense</keyword><keyword>Intelligence</keyword><keyword>Military</keyword><keyword>MIL-STD-2525D</keyword><keyword>ArcGISSolutions</keyword><keyword>Land Installations</keyword></searchKeys><idPurp>Military Features for use as part of a plan or operation. This feature class is intended to be used with land installation data (MIL-STD-2525D Symbol Set 20).</idPurp><idAbs>&lt;DIV STYLE=\"text-align:Left;font-size:12pt\"&gt;&lt;P STYLE=\"font-size:16ptmargin:7 0 7 0;\"&gt;&lt;SPAN&gt;&lt;SPAN&gt;Military Features that support building and installation features.&lt;/SPAN&gt;&lt;/SPAN&gt;&lt;/P&gt;&lt;/DIV&gt;</idAbs><idCredit></idCredit><resConst><Consts><useLimit>Licensed under the Apache License, Version 2.0.</useLimit></Consts></resConst></dataIdInfo></metadata>\r\n"
+    },
+    {
+      "type" : "CIMBinaryReference",
+      "uRI" : "CIMPATH=Metadata/4627d2818e28b4d157761af9512a2928.xml",
+      "data" : "<?xml version=\"1.0\"?>\r\n<metadata xml:lang=\"en\"><Esri><CreaDate>20150507</CreaDate><CreaTime>11492800</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce></Esri><dataIdInfo><idCitation><resTitle>Military Overlay</resTitle></idCitation><searchKeys><keyword>ArcGIS for the Military</keyword><keyword>Defense</keyword><keyword>Intelligence</keyword><keyword>Military</keyword><keyword>MIL-STD-2525D</keyword><keyword>ArcGISSolutions</keyword><keyword>Military Overlay</keyword></searchKeys><idPurp>Military Overlay Map</idPurp><idAbs>&lt;DIV STYLE=\"text-align:Left;font-size:12pt\"&gt;&lt;P&gt;&lt;SPAN&gt;Military Features for use as part of a plan or operation. &lt;/SPAN&gt;&lt;/P&gt;&lt;/DIV&gt;</idAbs><idCredit></idCredit><resConst><Consts><useLimit>Licensed under the Apache License, Version 2.0.</useLimit></Consts></resConst></dataIdInfo><Binary><Thumbnail><Data EsriPropertyType=\"PictureX\">/9j/4AAQSkZJRgABAQEAAAAAAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a\r\nHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy\r\nMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCACFAMgDAREA\r\nAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA\r\nAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3\r\nODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm\r\np6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA\r\nAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx\r\nBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK\r\nU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3\r\nuLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD2DMUp\r\nUvGsr7tyrgNg/wB4Ht1+tcji07om3VCiO3CqEVYyoAUKuMAZwB7dazbvuSQPCGj2qnQ7gxB+U+vU\r\nHuRx6/hSi7MENQSl0lO0hRtYFPvHK88nI6E/iPQGtk+jKTNOwZScq4MbDI98/wCc06StJoFuWonk\r\nZgGgkQFQ2WK/KT/CcE8j24966SiQ4+0J/ut/MUAPoAD+tAEJiVydyDngHHNZuKluhWKcQkMY3sAS\r\nAAucHt+VQvifMTJNsekcjKDwcg5A71fwP3CUuZakOSEUOBvA5ye9c9VKMmkCd0RHIwMcelYgAGch\r\neaPQBB6/pQgJ4nGGzjI6DHWtIMaZJuBzwc+varGMMojcALkswyB/M1pSq8rs3oRNJjt4bdz8vXmn\r\n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</Data></Thumbnail></Binary></metadata>\r\n"
+    }
+  ]
+}
