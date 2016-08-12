@@ -14,10 +14,9 @@ This template include scripts and related content for processing Air Control Ord
 The download includes the following content:
   
   + AirC2Weather - all the data and map documents required for the weather element of the template.
-  + arcgispro - ArcGIS Pro project 
   + arcmap - .mxd containing styled feature classes ready for publishing to ArcGIS server  
   + data - database schema for the processed files  
-  + files - sample ACO, ATO files to be processed 
+  + files - sample ACO, ATO files to be processed & flight simulation files  
   + gpservices - viewshed analysis tools 
   + logs - container for log files to be created  
   + output - container for output files to be created  
