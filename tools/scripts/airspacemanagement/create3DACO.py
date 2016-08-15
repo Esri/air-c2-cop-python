@@ -15,8 +15,8 @@ extrusions = []
 
 fields = ['OBJECTID','MIN_HEIGHT','MAX_HEIGHT','SHAPE@',"NAME"]
 
-if arcpy.Exists('%s/AirC2_ACO_POLYGON_3D' % (targetWS)):
-    arcpy.Delete_management('%s/AirC2_ACO_POLYGON_3D' % (targetWS))      
+if arcpy.Exists('%s/ACO_POLYGON_3D' % (targetWS)):
+    arcpy.Delete_management('%s/ACO_POLYGON_3D' % (targetWS))      
 
 with arcpy.da.SearchCursor(fc, fields) as cursor:
     for row in cursor:
@@ -59,7 +59,7 @@ with arcpy.da.SearchCursor(fc, fields) as cursor:
         extrusions.append(outMP)
 
 #merge all temp feature classes together into a single feature class        
-arcpy.Merge_management(extrusions, '%s/AirC2_ACO_POLYGON_3D' % (targetWS))
+arcpy.Merge_management(extrusions, '%s/ACO_POLYGON_3D' % (targetWS))
 
 #tidy up 
 arcpy.Delete_management('tin_min')
