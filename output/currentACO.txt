@@ -22177,6 +22177,6 @@
         }
     }, 
     "metadata": {
-        "filename": "\\\\nsecdata\\data\\AirC2\\files\\SampleACOandATO\\ExMontereyStrikeACO.aco"
+        "filename": "C:\\GitHub\\air-c2-cop\\files\\SampleACOandATO\\ExMontereyStrikeACO.aco"
     }
 }

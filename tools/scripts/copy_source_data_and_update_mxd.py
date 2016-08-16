@@ -62,8 +62,8 @@ def replicateDatabase(dbConnection, targetGDB):
     else:
         utils.common.OutputMessage(logging.DEBUG, "{0} - ".format(time.ctime()) + "{0} does not exist or is not supported! Please check the database path and try again.".format(dbConnection))
 
-def repairMXDPaths(targetGDB):
-     for root, dirs, files in os.walk(r"..\..\maps"):
+def repairMXDPaths(targetGDB,targetmaps):
+     for root, dirs, files in os.walk(targetmaps):
           for f in files:
                if f.endswith(".mxd"):
                     mxd = arcpy.mapping.MapDocument(root + '\\' + f)
@@ -83,8 +83,9 @@ if __name__ == "__main__":
 
     ############################### user variables #################################
     
-    databaseConnection = r"..\..\data\AirC2.gdb"
-    targetGDB = arcpy.GetParameterAsText(0)
+    databaseConnection = arcpy.GetParameterAsText(0)
+    targetGDB = arcpy.GetParameterAsText(1)
+    targetmaps = arcpy.GetParameterAsText(2)
     CONST_HEADING_PAD = 50
 
     ############################### logging items ###################################
@@ -94,7 +95,7 @@ if __name__ == "__main__":
     try:
          ########################## function calls ######################################
          replicateDatabase(databaseConnection, targetGDB)
-         repairMXDPaths(targetGDB)
+         repairMXDPaths(targetGDB,targetmaps)
          ################################################################################
     except Exception, e:
          utils.common.OutputMessage(logging.DEBUG, e)
