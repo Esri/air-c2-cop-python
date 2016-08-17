@@ -1,0 +1,31 @@
+Weather variables in OperationalData
+
+
+apcpsfc
+ ** surface total precipitation [kg/m2]
+
+
+gustsfc ** surface wind speed (gust) [m/s] 
+hgtclb
+ ** height of cloud base [gpm]
+
+	
+snodsfc 
+** surface snow depth [m]
+
+
+tcdcclm 
+** entire atmosphere (considerd as a single layer) total cloud cover [%]
+
+
+tmpsfc 
+** surface temperature [k] 
+ 
+
+vissfc 
+** surface visibility [m] 
+rh2m ** 2 m above ground relative humidity [%] 
+ugrd10m ** 10 m above ground u-component of wind [m/s] 
+ugrdmwl ** max wind u-component of wind [m/s] 
+vgrd10m ** 10 m above ground v-component of wind [m/s] 
+vgrdmwl ** max wind v-component of wind [m/s] 
