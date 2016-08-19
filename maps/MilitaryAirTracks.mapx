@@ -4,10 +4,11 @@
   "build" : 5023,
   "mapDefinition" : {
     "type" : "CIMMap",
-    "name" : "Military Overlay DB",
-    "uRI" : "CIMPATH=military_overlay_fgdb1/map2.xml",
+    "name" : "Military Air Tracks",
+    "uRI" : "CIMPATH=military_overlay_db/map2.xml",
     "sourceModifiedTime" : {
-      "type" : "TimeInstant"
+      "type" : "TimeInstant",
+      "start" : 978307200000
     },
     "metadataURI" : "CIMPATH=Metadata/b7375001f109b7b8a28cff2fe1a29533.xml",
     "illumination" : {
@@ -21,18 +22,19 @@
       "sunAltitude" : 30
     },
     "layers" : [
-      "CIMPATH=military_overlay_fgdb1/air_equipment__platform__and_missile.xml"
+      "CIMPATH=military_overlay_db/air_equipment__platform__and_missile.xml",
+      "CIMPATH=c70d4ff1b50842de95d9cbe54292fb0d.xml"
     ],
     "defaultViewingMode" : "Map",
     "mapType" : "Map",
     "defaultExtent" : {
-      "xmin" : -122.72664209295337,
-      "ymin" : 33.029011160058211,
-      "xmax" : -114.14259862617752,
-      "ymax" : 40.92449499046166,
+      "xmin" : -13545151.773730414,
+      "ymin" : 4147431.9195469879,
+      "xmax" : -12369305.273027906,
+      "ymax" : 5025369.2352013215,
       "spatialReference" : {
-        "wkid" : 4326,
-        "latestWkid" : 4326
+        "wkid" : 102100,
+        "latestWkid" : 3857
       }
     },
     "generalPlacementProperties" : {
@@ -68,8 +70,8 @@
       "snapRequestType" : "SnapRequestType_GeometricAndVisualSnapping"
     },
     "spatialReference" : {
-      "wkid" : 4326,
-      "latestWkid" : 4326
+      "wkid" : 102100,
+      "latestWkid" : 3857
     },
     "timeDisplay" : {
       "type" : "CIMMapTimeDisplay",
@@ -87,7 +89,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "AirTracks",
-      "uRI" : "CIMPATH=military_overlay_fgdb1/air_equipment__platform__and_missile.xml",
+      "uRI" : "CIMPATH=military_overlay_db/air_equipment__platform__and_missile.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant",
         "start" : 978336000000
@@ -473,10 +475,10 @@
         ],
         "dataConnection" : {
           "type" : "CIMStandardDataConnection",
-          "workspaceConnectionString" : "ENCRYPTED_PASSWORD=00022e683464476648524b725669677958307875414b4a51423670523067422b44684733444b49756b5a5948384a593d2a00;SERVER=airc2;INSTANCE=sde:postgresql:airc2;DBCLIENT=postgresql;DB_CONNECTION_PROPERTIES=airc2;DATABASE=military;USER=sde;VERSION=sde.DEFAULT;AUTHENTICATION_MODE=DBMS",
+          "workspaceConnectionString" : "ENCRYPTED_PASSWORD=00022e68696a32372f4f314d716145486a616e79556165544d41617a48493239624f494636597a57556866735162303d2a00;SERVER=airc2;INSTANCE=sde:postgresql:airc2;DBCLIENT=postgresql;DB_CONNECTION_PROPERTIES=airc2;DATABASE=currentoperations;USER=sde;VERSION=sde.DEFAULT;AUTHENTICATION_MODE=DBMS",
           "workspaceFactory" : "SDE",
-          "dataset" : "military.sde.Air",
-          "datasetType" : "esriDTAny"
+          "dataset" : "currentoperations.sde.AirC2_MilitaryAirTracks",
+          "datasetType" : "esriDTFeatureClass"
         },
         "studyAreaSpatialRel" : "esriSpatialRelUndefined",
         "searchOrder" : "esriSearchOrderSpatial"
@@ -1947,6 +1949,72 @@
       },
       "scaleSymbols" : true,
       "snappable" : true
+    },
+    {
+      "type" : "CIMTiledServiceLayer",
+      "name" : "TopographicMap",
+      "uRI" : "CIMPATH=c70d4ff1b50842de95d9cbe54292fb0d.xml",
+      "sourceModifiedTime" : {
+        "type" : "TimeInstant"
+      },
+      "description" : "Basemaps/TopographicMap",
+      "layer3DProperties" : {
+        "type" : "CIM3DLayerProperties",
+        "castShadows" : true,
+        "isLayerLit" : true,
+        "layerFaceCulling" : "None",
+        "maxDistance" : -1,
+        "minDistance" : -1,
+        "preloadTextureCutoffHigh" : 0,
+        "preloadTextureCutoffLow" : 0.25,
+        "textureCutoffHigh" : 0.25,
+        "textureCutoffLow" : 1,
+        "useCompressedTextures" : true,
+        "verticalExaggeration" : 1,
+        "verticalUnit" : {
+          "uwkid" : 9001
+        },
+        "lighting" : "OneSideDataNormal"
+      },
+      "layerType" : "BasemapBackground",
+      "maxScale" : 4513.9887049999998,
+      "minScale" : 591657527.591555,
+      "showLegends" : true,
+      "visibility" : false,
+      "displayCacheType" : "Permanent",
+      "maxDisplayCacheAge" : 5,
+      "showPopups" : true,
+      "serviceLayerID" : -1,
+      "serviceConnection" : {
+        "type" : "CIMAGSServiceConnection",
+        "objectName" : "Basemaps/TopographicMap",
+        "objectType" : "MapServer",
+        "url" : "https://airc2.esri.com/ags/rest/services/Basemaps/TopographicMap/MapServer",
+        "serverConnection" : {
+          "type" : "CIMInternetServerConnection",
+          "anonymous" : true,
+          "hideUserProperty" : true,
+          "url" : "https://airc2.esri.com/ags/services"
+        }
+      },
+      "transparentColor" : {
+        "type" : "CIMRGBColor",
+        "values" : [
+          254,
+          254,
+          254,
+          100
+        ]
+      },
+      "backgroundColor" : {
+        "type" : "CIMRGBColor",
+        "values" : [
+          254,
+          254,
+          254,
+          100
+        ]
+      }
     }
   ],
   "binaryReferences" : [
