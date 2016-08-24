@@ -62,7 +62,7 @@ try:
       #process response    
       
       if response['value'] == "114, 137, 68": #Pixel value colour for Favorable
-          name =  name + "<br /><font size='2'>Impact of Cloud Ceiling on target acquisition is</font><font style='color:green' size='2'> Favorable.</font>"
+          name =  name + "<br /><font size='2'>Impact of Cloud Ceiling on target acquisition is</font><font style='color:lime' size='2'> Favorable.</font>"
           utils.common.OutputMessage(logging.DEBUG, "{0} Impact of Cloud Ceiling on target acquisition in fixed wing aircraft is Favorable".format(time.ctime()))
       if response['value'] == "215, 173, 96": #Pixel value colour for Marginal
           name =  name + "<br /><font size='2'>Impact of Cloud Ceiling on target acquisition is</font><font style='color:orange' size='2'> Marginal.</font>"
@@ -90,7 +90,7 @@ try:
       #process response    
       # Set icon colour to green only change if somethini is not favarable
       if response2['value'] == "114, 137, 68": #Pixel value colour for Favorable
-        name =  name + "<br /><font size='2'>Impact of temperature on Air Defence is</font><font style='color:green' size='2'> Favorable.</font>"
+        name =  name + "<br /><font size='2'>Impact of temperature on Air Defence is</font><font style='color:lime' size='2'> Favorable.</font>"
         utils.common.OutputMessage(logging.DEBUG, "{0} Impact of temperature on Air Defence is Favorable".format(time.ctime()))
       if response2['value'] == "215, 173, 96": #Pixel value colour for Marginal
         name =  name + "<br /><font size='2'>Impact of temperature on Air Defence is</font><font style='color:orange' size='2'> Marginal.</font>"
