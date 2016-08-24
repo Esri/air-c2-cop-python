@@ -81,8 +81,8 @@
             "id": "MONTEREY STRIKE"
         }, 
         "TIMEFRAM": {
-            "start": "2016/07/11 00:01:00", 
-            "stop": "2016/07/11 23:59:00", 
+            "start": "2016/07/28 00:01:00", 
+            "stop": "2016/07/28 23:59:00", 
             "asof": "2001/01/01 00:01:00"
         }
     }, 
@@ -97,15 +97,15 @@
                             "secondaryMissionType": "-", 
                             "missionType": "-", 
                             "departureTime": "-", 
-                            "missionNo": "Mission01", 
+                            "missionNo": "Mission 01", 
                             "missionRole": "DCA", 
-                            "primaryMissionType": "OCA", 
+                            "primaryMissionType": "AI", 
                             "GTGTLOC": {
                                 "targetType": "PWRFAC", 
-                                "notLaterThan": "2016/07/11 09:53:00", 
-                                "timeOnTarget": "2016/07/11 09:50:00", 
+                                "notLaterThan": "2016/07/28 09:53:00", 
+                                "timeOnTarget": "2016/07/28 09:50:00", 
                                 "elevation": 0, 
-                                "notEarlierThan": "2016/07/11 09:48:00", 
+                                "notEarlierThan": "2016/07/28 09:48:00", 
                                 "geometry": {
                                     "y": 38.3723, 
                                     "x": -110.70375, 
@@ -151,15 +151,15 @@
                             "secondaryMissionType": "-", 
                             "missionType": "-", 
                             "departureTime": "-", 
-                            "missionNo": "Mission02", 
+                            "missionNo": "Mission 02", 
                             "missionRole": "DCA", 
-                            "primaryMissionType": "OCA", 
+                            "primaryMissionType": "AI", 
                             "GTGTLOC": {
                                 "targetType": "BRIDGE", 
-                                "notLaterThan": "2016/07/11 11:23:00", 
-                                "timeOnTarget": "2016/07/11 11:50:00", 
+                                "notLaterThan": "2016/07/28 11:23:00", 
+                                "timeOnTarget": "2016/07/28 11:50:00", 
                                 "elevation": 0, 
-                                "notEarlierThan": "2016/07/11 11:48:00", 
+                                "notEarlierThan": "2016/07/28 11:48:00", 
                                 "geometry": {
                                     "y": 37.8911, 
                                     "x": -110.37038333333332, 
@@ -205,18 +205,18 @@
                             "secondaryMissionType": "-", 
                             "missionType": "-", 
                             "departureTime": "-", 
-                            "missionNo": "Mission03", 
+                            "missionNo": "Mission 03", 
                             "missionRole": "DCA", 
-                            "primaryMissionType": "OCA", 
+                            "primaryMissionType": "AI", 
                             "GTGTLOC": {
-                                "targetType": "DAM", 
-                                "notLaterThan": "2016/07/11 14:28:00", 
-                                "timeOnTarget": "2016/07/11 14:29:00", 
+                                "targetType": "BRIDGE", 
+                                "notLaterThan": "2016/07/28 14:28:00", 
+                                "timeOnTarget": "2016/07/28 14:29:00", 
                                 "elevation": 0, 
-                                "notEarlierThan": "2016/07/11 14:26:00", 
+                                "notEarlierThan": "2016/07/28 14:26:00", 
                                 "geometry": {
-                                    "y": 36.01616666666666, 
-                                    "x": -114.73713333333333, 
+                                    "y": 36.012683333333335, 
+                                    "x": -114.74115, 
                                     "z": 0.0, 
                                     "spatialReference": {
                                         "wkid": 4326
@@ -229,7 +229,7 @@
                                 "dmpiDesc": "CENTER SPAN", 
                                 "targetPosition": "ID:XYM099", 
                                 "objective": "-", 
-                                "targetName": "HOOVER DAM"
+                                "targetName": "HOOVER DAM BYPASS"
                             }, 
                             "commander": "MC", 
                             "recoveryLocation": "KMRY", 
@@ -273,15 +273,15 @@
                             "secondaryMissionType": "-", 
                             "missionType": "-", 
                             "departureTime": "-", 
-                            "missionNo": "Mission04", 
+                            "missionNo": "Mission 04", 
                             "missionRole": "DCA", 
-                            "primaryMissionType": "OCA", 
+                            "primaryMissionType": "AI", 
                             "GTGTLOC": {
                                 "targetType": "AFLD", 
-                                "notLaterThan": "2016/07/11 02:53:00", 
-                                "timeOnTarget": "2016/07/11 02:50:00", 
+                                "notLaterThan": "2016/07/28 02:53:00", 
+                                "timeOnTarget": "2016/07/28 02:50:00", 
                                 "elevation": 0, 
-                                "notEarlierThan": "2016/07/11 02:48:00", 
+                                "notEarlierThan": "2016/07/28 02:48:00", 
                                 "geometry": {
                                     "y": 39.60743333333333, 
                                     "x": -116.00266666666667, 
@@ -327,15 +327,15 @@
                             "secondaryMissionType": "-", 
                             "missionType": "-", 
                             "departureTime": "-", 
-                            "missionNo": "Mission05", 
+                            "missionNo": "Mission 05", 
                             "missionRole": "DCA", 
-                            "primaryMissionType": "OCA", 
+                            "primaryMissionType": "AI", 
                             "GTGTLOC": {
                                 "targetType": "AFLD", 
-                                "notLaterThan": "2016/07/11 06:03:00", 
-                                "timeOnTarget": "2016/07/11 06:00:00", 
+                                "notLaterThan": "2016/07/28 06:03:00", 
+                                "timeOnTarget": "2016/07/28 06:00:00", 
                                 "elevation": 0, 
-                                "notEarlierThan": "2016/07/11 05:58:00", 
+                                "notEarlierThan": "2016/07/28 05:58:00", 
                                 "geometry": {
                                     "y": 39.19226666666666, 
                                     "x": -119.73440000000001, 
@@ -381,15 +381,15 @@
                             "secondaryMissionType": "-", 
                             "missionType": "-", 
                             "departureTime": "-", 
-                            "missionNo": "Mission06", 
+                            "missionNo": "Mission 06", 
                             "missionRole": "DCA", 
-                            "primaryMissionType": "OCA", 
+                            "primaryMissionType": "AI", 
                             "GTGTLOC": {
                                 "targetType": "AIRTOWER", 
-                                "notLaterThan": "2016/07/11 22:03:00", 
-                                "timeOnTarget": "2016/07/11 22:00:00", 
+                                "notLaterThan": "2016/07/28 22:03:00", 
+                                "timeOnTarget": "2016/07/28 22:00:00", 
                                 "elevation": 0, 
-                                "notEarlierThan": "2016/07/11 21:58:00", 
+                                "notEarlierThan": "2016/07/28 21:58:00", 
                                 "geometry": {
                                     "y": 33.823100000000004, 
                                     "x": -116.5065, 
@@ -398,7 +398,7 @@
                                         "wkid": 4326
                                     }
                                 }, 
-                                "dmpiId": "TGT005", 
+                                "dmpiId": "TGT006", 
                                 "geodeticDatum": "-", 
                                 "designator": "P", 
                                 "priority": "DESTROY", 
@@ -449,15 +449,15 @@
                             "secondaryMissionType": "-", 
                             "missionType": "-", 
                             "departureTime": "-", 
-                            "missionNo": "Mission07", 
+                            "missionNo": "Mission 07", 
                             "missionRole": "DCA", 
-                            "primaryMissionType": "OCA", 
+                            "primaryMissionType": "AI", 
                             "GTGTLOC": {
                                 "targetType": "AAA", 
-                                "notLaterThan": "2016/07/11 09:53:00", 
-                                "timeOnTarget": "2016/07/11 09:50:00", 
+                                "notLaterThan": "2016/07/28 09:53:00", 
+                                "timeOnTarget": "2016/07/28 09:50:00", 
                                 "elevation": 0, 
-                                "notEarlierThan": "2016/07/11 09:48:00", 
+                                "notEarlierThan": "2016/07/28 09:48:00", 
                                 "geometry": {
                                     "y": 40.3722, 
                                     "x": -115.70358333333334, 
@@ -503,15 +503,15 @@
                             "secondaryMissionType": "-", 
                             "missionType": "-", 
                             "departureTime": "-", 
-                            "missionNo": "Mission08", 
+                            "missionNo": "Mission 08", 
                             "missionRole": "DCA", 
-                            "primaryMissionType": "OCA", 
+                            "primaryMissionType": "AI", 
                             "GTGTLOC": {
                                 "targetType": "AAA", 
-                                "notLaterThan": "2016/07/11 11:23:00", 
-                                "timeOnTarget": "2016/07/11 11:50:00", 
+                                "notLaterThan": "2016/07/28 11:23:00", 
+                                "timeOnTarget": "2016/07/28 11:50:00", 
                                 "elevation": 0, 
-                                "notEarlierThan": "2016/07/11 11:48:00", 
+                                "notEarlierThan": "2016/07/28 11:48:00", 
                                 "geometry": {
                                     "y": 40.038599999999995, 
                                     "x": -115.28871666666666, 
@@ -571,15 +571,15 @@
                             "secondaryMissionType": "-", 
                             "missionType": "-", 
                             "departureTime": "-", 
-                            "missionNo": "Mission09", 
+                            "missionNo": "Mission 09", 
                             "missionRole": "DCA", 
-                            "primaryMissionType": "OCA", 
+                            "primaryMissionType": "AI", 
                             "GTGTLOC": {
                                 "targetType": "AAA", 
-                                "notLaterThan": "2016/07/11 23:38:00", 
-                                "timeOnTarget": "2016/07/11 23:34:00", 
+                                "notLaterThan": "2016/07/28 23:38:00", 
+                                "timeOnTarget": "2016/07/28 23:34:00", 
                                 "elevation": 0, 
-                                "notEarlierThan": "2016/07/11 23:30:00", 
+                                "notEarlierThan": "2016/07/28 23:30:00", 
                                 "geometry": {
                                     "y": 35.47598333333333, 
                                     "x": -114.5552, 
@@ -588,7 +588,7 @@
                                         "wkid": 4326
                                     }
                                 }, 
-                                "dmpiId": "TGTAAA1", 
+                                "dmpiId": "TGTAAA3", 
                                 "geodeticDatum": "-", 
                                 "designator": "P", 
                                 "priority": "DESTROY", 
@@ -625,15 +625,15 @@
                             "secondaryMissionType": "-", 
                             "missionType": "-", 
                             "departureTime": "-", 
-                            "missionNo": "Mission010", 
+                            "missionNo": "Mission 10", 
                             "missionRole": "DCA", 
-                            "primaryMissionType": "OCA", 
+                            "primaryMissionType": "AI", 
                             "GTGTLOC": {
                                 "targetType": "AAA", 
-                                "notLaterThan": "2016/07/11 23:38:00", 
-                                "timeOnTarget": "2016/07/11 23:34:00", 
+                                "notLaterThan": "2016/07/28 23:38:00", 
+                                "timeOnTarget": "2016/07/28 23:34:00", 
                                 "elevation": 0, 
-                                "notEarlierThan": "2016/07/11 23:30:00", 
+                                "notEarlierThan": "2016/07/28 23:30:00", 
                                 "geometry": {
                                     "y": 34.95418333333333, 
                                     "x": -114.90498333333333, 
@@ -642,7 +642,7 @@
                                         "wkid": 4326
                                     }
                                 }, 
-                                "dmpiId": "TGTAAA2", 
+                                "dmpiId": "TGTAAA4", 
                                 "geodeticDatum": "-", 
                                 "designator": "P", 
                                 "priority": "DESTROY", 
@@ -685,6 +685,6 @@
         }
     ], 
     "metadata": {
-        "filename": "\\\\nsecdata\\Data\\AirC2\\files\\ExMontereyStrikeATO.ato"
+        "filename": "C:\\GitHub\\air-c2-cop\\files\\SampleACOandATO\\ExMontereyStrikeATO.ato"
     }
 }

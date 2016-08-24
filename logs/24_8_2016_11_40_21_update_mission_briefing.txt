@@ -1,0 +1,109 @@
+2016-08-24 11:40:21,440 DEBUG --------------------------------------------------
+2016-08-24 11:40:21,440 DEBUG Wed Aug 24 11:40:21 2016 Creatation of Mission Briefing Feature Class started
+2016-08-24 11:40:21,440 DEBUG --------------------------------------------------
+2016-08-24 11:40:21,470 DEBUG Wed Aug 24 11:40:21 2016 Writing features to ATO_MISSION_Breifing feature class
+2016-08-24 11:40:21,470 DEBUG Wed Aug 24 11:40:21 2016 Writing features to ATO_MISSION_Breifing feature class complete
+2016-08-24 11:40:21,470 DEBUG --------------------------------------------------
+2016-08-24 11:40:21,470 DEBUG Wed Aug 24 11:40:21 2016 Creatation of Mission Briefing Feature Class complete
+2016-08-24 11:40:21,470 DEBUG --------------------------------------------------
+2016-08-24 11:42:09,644 DEBUG --------------------------------------------------
+2016-08-24 11:42:09,644 DEBUG Wed Aug 24 11:42:09 2016 Creatation of Mission Briefing Feature Class started
+2016-08-24 11:42:09,644 DEBUG --------------------------------------------------
+2016-08-24 11:42:09,676 DEBUG Wed Aug 24 11:42:09 2016 Writing features to ATO_MISSION_Breifing feature class
+2016-08-24 11:42:09,676 DEBUG Wed Aug 24 11:42:09 2016 Writing features to ATO_MISSION_Breifing feature class complete
+2016-08-24 11:42:09,676 DEBUG --------------------------------------------------
+2016-08-24 11:42:09,676 DEBUG Wed Aug 24 11:42:09 2016 Creatation of Mission Briefing Feature Class complete
+2016-08-24 11:42:09,676 DEBUG --------------------------------------------------
+2016-08-24 11:48:44,437 DEBUG --------------------------------------------------
+2016-08-24 11:48:44,437 DEBUG Wed Aug 24 11:48:44 2016 Creatation of Mission Briefing Feature Class started
+2016-08-24 11:48:44,437 DEBUG --------------------------------------------------
+2016-08-24 11:48:44,470 DEBUG Wed Aug 24 11:48:44 2016 Writing features to ATO_MISSION_Breifing feature class
+2016-08-24 11:48:44,470 DEBUG --------------------------------------------------
+2016-08-24 11:48:44,470 DEBUG Wed Aug 24 11:48:44 2016 Creatation of Mission Briefing Feature Class complete
+2016-08-24 11:48:44,470 DEBUG --------------------------------------------------
+2016-08-24 11:50:04,204 DEBUG main() Started.
+2016-08-24 11:50:15,752 DEBUG --------------------------------------------------
+2016-08-24 11:50:15,752 DEBUG Wed Aug 24 11:50:15 2016 Creatation of Mission Briefing Feature Class started
+2016-08-24 11:50:15,752 DEBUG --------------------------------------------------
+2016-08-24 11:50:15,767 DEBUG Wed Aug 24 11:50:15 2016 Processing Mission 01
+2016-08-24 11:50:17,058 DEBUG Wed Aug 24 11:50:17 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 11:50:17,088 DEBUG Wed Aug 24 11:50:17 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 11:50:17,088 DEBUG name 'icon_color' is not defined
+2016-08-24 11:50:17,088 DEBUG --------------------------------------------------
+2016-08-24 11:50:17,088 DEBUG Wed Aug 24 11:50:17 2016 Creatation of Mission Briefing Feature Class complete
+2016-08-24 11:50:17,088 DEBUG --------------------------------------------------
+2016-08-24 11:51:25,028 DEBUG --------------------------------------------------
+2016-08-24 11:51:25,028 DEBUG Wed Aug 24 11:51:25 2016 Creatation of Mission Briefing Feature Class started
+2016-08-24 11:51:25,028 DEBUG --------------------------------------------------
+2016-08-24 11:51:25,043 DEBUG Wed Aug 24 11:51:25 2016 Processing Mission 01
+2016-08-24 11:51:25,059 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 11:51:25,075 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 11:51:25,075 DEBUG Wed Aug 24 11:51:25 2016 Processing Mission 02
+2016-08-24 11:51:25,075 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 11:51:25,091 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 11:51:25,091 DEBUG Wed Aug 24 11:51:25 2016 Processing Mission 03
+2016-08-24 11:51:25,091 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 11:51:25,105 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 11:51:25,105 DEBUG Wed Aug 24 11:51:25 2016 Processing Mission 04
+2016-08-24 11:51:25,105 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 11:51:25,105 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 11:51:25,105 DEBUG Wed Aug 24 11:51:25 2016 Processing Mission 05
+2016-08-24 11:51:25,121 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 11:51:25,121 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 11:51:25,121 DEBUG Wed Aug 24 11:51:25 2016 Processing Mission 06
+2016-08-24 11:51:25,137 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 11:51:25,137 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 11:51:25,137 DEBUG Wed Aug 24 11:51:25 2016 Processing Mission 07
+2016-08-24 11:51:25,153 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 11:51:25,153 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 11:51:25,153 DEBUG Wed Aug 24 11:51:25 2016 Processing Mission 08
+2016-08-24 11:51:25,168 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 11:51:25,168 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 11:51:25,168 DEBUG Wed Aug 24 11:51:25 2016 Processing Mission 09
+2016-08-24 11:51:25,184 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 11:51:25,184 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 11:51:25,184 DEBUG Wed Aug 24 11:51:25 2016 Processing Mission 10
+2016-08-24 11:51:25,200 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 11:51:25,200 DEBUG Wed Aug 24 11:51:25 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 11:51:25,216 DEBUG Wed Aug 24 11:51:25 2016 Writing features to ATO_MISSION_Breifing feature class
+2016-08-24 11:51:25,216 DEBUG --------------------------------------------------
+2016-08-24 11:51:25,216 DEBUG Wed Aug 24 11:51:25 2016 Creatation of Mission Briefing Feature Class complete
+2016-08-24 11:51:25,216 DEBUG --------------------------------------------------
+2016-08-24 12:00:30,855 DEBUG main() Started.
+2016-08-24 12:00:47,898 DEBUG --------------------------------------------------
+2016-08-24 12:00:47,898 DEBUG Wed Aug 24 12:00:47 2016 Creatation of Mission Briefing Feature Class started
+2016-08-24 12:00:47,898 DEBUG --------------------------------------------------
+2016-08-24 12:00:47,913 DEBUG Wed Aug 24 12:00:47 2016 Processing Mission 01
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 Processing Mission 02
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 Processing Mission 03
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 Processing Mission 04
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 Processing Mission 05
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 Processing Mission 06
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 Processing Mission 07
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 Processing Mission 08
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 Processing Mission 09
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 12:00:47,944 DEBUG Wed Aug 24 12:00:47 2016 Processing Mission 10
+2016-08-24 12:00:47,960 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft
+2016-08-24 12:00:47,960 DEBUG Wed Aug 24 12:00:47 2016 An error occured whilst trying to derive the Impact of temperature on Air Defence
+2016-08-24 12:00:47,960 DEBUG Wed Aug 24 12:00:47 2016 Writing features to ATO_MISSION_Breifing feature class
+2016-08-24 12:00:47,976 DEBUG --------------------------------------------------
+2016-08-24 12:00:47,976 DEBUG Wed Aug 24 12:00:47 2016 Creatation of Mission Briefing Feature Class complete
+2016-08-24 12:00:47,976 DEBUG --------------------------------------------------
