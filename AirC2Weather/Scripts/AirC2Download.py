@@ -10,7 +10,7 @@
 ##                    The new data is then loaded into the Mosiac Dataset
 ##                    The wind data is then combined into a Multiband raster.
 ##
-##Date Edited: 15/08/2016
+##Date Edited: 25/08/2016
 
 
 #Import modules
@@ -37,8 +37,6 @@ tls = "Tools"
 
 #Declaration of variables used later
 variable = "rh2m;tcdcclm;tmpsfc;hgtclb;vissfc;ugrd10m;vgrd10m;ugrdmwl;vgrdmwl;snodsfc;gustsfc;apcpsfc"
-variable2 = "ugrd10m"
-variable3 = "vgrd10m"
 extent = "-126 30 -109 45"
 dimension = "time '2016-01-01 00:00:00' '2016-12-31 00:00:00'"
 env.workspace = topFolder + os.sep + gdb + "\OperationalWeather.gdb"
@@ -55,7 +53,7 @@ def download(paramFN,paramDL):
     patternDate = '%Y%m%d'
     patternTime = '%H:%M:%S'
 
-    utcdate = datetime.utcnow() - timedelta(hours=N)
+    utcdate = datetime.utcnow()
     
 ##    stringDateNow = datetime.utcnow().strftime(patternDate)
 ##    stringTimeNow = datetime.utcnow().strftime(patternTime)
@@ -67,15 +65,11 @@ def download(paramFN,paramDL):
 
     #Insert present date into string for out_file
     stringToChange =  topFolder + os.sep + NetCDFData + r"\nam%s" + paramFN + ".nc"
-    stringToChange2 = topFolder + os.sep + NetCDFData + r"\nam%s" + paramFN + "Wind_U.nc"
-    stringToChange3 = topFolder + os.sep + NetCDFData + r"\nam%s" + paramFN + "Wind_V.nc"
     stringToChange4 = r"http://nomads.ncep.noaa.gov/dods/nam/nam%s/nam" + paramDL
      
     stringToInsert = stringDateNow
     
     stringFinal = stringToChange % stringToInsert
-    stringFinal2 = stringToChange2 % stringToInsert
-    stringFinal3 = stringToChange3 % stringToInsert
     stringFinal4 = stringToChange4 % stringToInsert
     filename = "nam%s1hr00z.nc" % stringToInsert
 
@@ -90,22 +84,6 @@ def download(paramFN,paramDL):
 
     #-------------------------------------------------------------------------------------------------------------------------------------------
 
-    #Declare variables to be added into OPeNDAP to NetCDF tool for download of wind_U data
-    in_url2 = stringFinal4
-    out_file2 = stringFinal2
-
-    #Run OPeNDAP to NetCDF tool
-    arcpy.OPeNDAPtoNetCDF_mds( in_url2, variable2, out_file2, extent, dimension, "BY_VALUE")
-
-    #-------------------------------------------------------------------------------------------------------------------------------------------
-
-    #Declare variables to be added into OPeNDAP to NetCDF tool for download of wind_V data
-    in_url3 = stringFinal4
-    out_file3 = stringFinal3
-
-    #Run OPeNDAP to NetCDF tool
-    arcpy.OPeNDAPtoNetCDF_mds( in_url3, variable3, out_file3, extent, dimension, "BY_VALUE")
-
     finishDownload = str(datetime.utcnow())
     print "OPeNDAp Tool run and data download finished at" + " " + finishDownload
     print out_file
@@ -114,52 +92,43 @@ def download(paramFN,paramDL):
     #Data loading into Mosaic datasets.
 
     Input_Data = out_file
-    Input_Data2 = out_file2
-    Input_Data3 = out_file3
 
-    i = 0
-    inputs = [Input_Data,Input_Data2,Input_Data3]
+    output = topFolder + os.sep + gdb + "\OperationalWeather.gdb\\OperationalData"
+    output2 = topFolder + os.sep + gdb + "\OperationalWeather.gdb\\OperationalWind"
 
-    Raster_Type = "NetCDF" 
+    Raster_Type = "NetCDF"
+    Raster_Type2 = topFolder + os.sep + NetCDFData + os.sep + "NETCDF_type.art.xml"
+    print Raster_Type2
 
-    output = topFolder + os.sep + gdb + "\OperationalWeather.gdb\\OperationalData" 
-    output2 = topFolder + os.sep + gdb + "\OperationalWeather.gdb\\Ugrd10m"
-    output3 = topFolder + os.sep + gdb + "\OperationalWeather.gdb\\Vgrd10m"
+    
+    #Check if the geodatabases stated above exist
+    if arcpy.Exists(output):
+        print output + " " + "exists"
+    else:
+        print output + " " + "does not exist"
 
-    outputs = [output,output2,output3]
+    if arcpy.Exists(output2):
+        print output2 + " " + "exists"
+    else:
+        print output2 + " " + "does not exist"
 
-    for ras in outputs:
-        #Check if the geodatabases stated above exist
-        if arcpy.Exists(ras):
-            print ras + " " + "exists"
-        else:
-            print ras + " " + "does not exist"
+    # Process: Remove Rasters From Mosaic Dataset
+    arcpy.RemoveRastersFromMosaicDataset_management(output, "OBJECTID >=0", "NO_BOUNDARY", "NO_MARK_OVERVIEW_ITEMS", "NO_DELETE_OVERVIEW_IMAGES", "NO_DELETE_ITEM_CACHE", "REMOVE_MOSAICDATASET_ITEMS", "NO_CELL_SIZES")
+    arcpy.RemoveRastersFromMosaicDataset_management(output2, "OBJECTID >=0", "NO_BOUNDARY", "NO_MARK_OVERVIEW_ITEMS", "NO_DELETE_OVERVIEW_IMAGES", "NO_DELETE_ITEM_CACHE", "REMOVE_MOSAICDATASET_ITEMS", "NO_CELL_SIZES")
+    
+    # Process: Add Rasters To Mosaic Dataset
+    arcpy.AddRastersToMosaicDataset_management(output, Raster_Type, Input_Data, "UPDATE_CELL_SIZES", "UPDATE_BOUNDARY", "NO_OVERVIEWS", "", "0", "1500", "", "*.nc", "SUBFOLDERS", "ALLOW_DUPLICATES", "NO_PYRAMIDS", "NO_STATISTICS", "NO_THUMBNAILS", "", "NO_FORCE_SPATIAL_REFERENCE")
 
-        # Process: Remove Rasters From Mosaic Dataset
-        arcpy.RemoveRastersFromMosaicDataset_management(ras, "OBJECTID >=0", "NO_BOUNDARY", "NO_MARK_OVERVIEW_ITEMS", "NO_DELETE_OVERVIEW_IMAGES", "NO_DELETE_ITEM_CACHE", "REMOVE_MOSAICDATASET_ITEMS", "NO_CELL_SIZES")
+    print ("Rasters added to" + " " + output)
 
-        # Process: Add Rasters To Mosaic Dataset
-        arcpy.AddRastersToMosaicDataset_management(ras, Raster_Type, inputs[i], "UPDATE_CELL_SIZES", "UPDATE_BOUNDARY", "NO_OVERVIEWS", "", "0", "1500", "", "*.nc", "SUBFOLDERS", "ALLOW_DUPLICATES", "NO_PYRAMIDS", "NO_STATISTICS", "NO_THUMBNAILS", "", "NO_FORCE_SPATIAL_REFERENCE")
+    arcpy.AddRastersToMosaicDataset_management(output2,Raster_Type2 ,Input_Data)
 
-        print ("Rasters added to" + " " + ras)
-
-        i = i+1
-
-
+    print ("Rasters added to" + " " + output2)
+    
     finishDataLoad = str(datetime.utcnow())
     print "Data loading finished at" + " " + finishDataLoad
 
     #_____________________________________________________________________________________________________________________________________________
-
-    #Sort out wind data
-    #add to a multiband raster
-
-    rasIn = env.workspace + "\Ugrd10m" + ";" + env.workspace + "\Vgrd10m"
-    outcomp = env.workspace + "\OperationalWind"
-
-    #Make composite band raster
-    arcpy.CompositeBands_management(rasIn, outcomp)
-    
 
     finishWindDataProcessing = str(datetime.utcnow())
     print "Wind data processing finished at" + " " + finishWindDataProcessing
