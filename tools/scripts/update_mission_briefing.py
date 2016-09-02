@@ -88,7 +88,6 @@ try:
       response2 = json.loads(urllib.urlopen(request2).read())
 
       #process response    
-      # Set icon colour to green only change if somethini is not favarable
       if response2['value'] == "114, 137, 68": #Pixel value colour for Favorable
         name =  name + "<br /><font size='2'>Impact of temperature on Air Defence is</font><font style='color:lime' size='2'> Favorable.</font>"
         utils.common.OutputMessage(logging.DEBUG, "{0} Impact of temperature on Air Defence is Favorable".format(time.ctime()))
