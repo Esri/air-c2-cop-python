@@ -1,4 +1,4 @@
-# air-c2-cop
+# air-c2-cop-python
 A collection of scripts and files necessary for the creation of the Defense Solutions Air C2 COP project.
 
 The Air Operations Command and Control Common Operating Picture is a gallery of maps and apps for an Air Operations Officer to maintain a common operating picture for command and control. These include a 3D web application built in Web AppBuilder for situational awareness and analysis, an operations dashboard for real-time awareness and decision making, and story map journals to brief pre- and post-action. These applications all reference a central web map and web scene integrated with other real-time data inputs analyzed using GeoEvent Extension.
@@ -14,7 +14,7 @@ The Air Operations Command and Control Common Operating Picture is a gallery of 
 
 * Backup when the Owner is away
 
-Additional information is available in the repository's [Wiki](https://github.com/Esri/solutions-geoprocessing-toolbox/wiki).
+Additional information is available in the repository's [Wiki](https://github.com/Esri/air-c2-cop-python/wiki).
 
 ## Sections
 
@@ -65,7 +65,7 @@ Setting the parent repo to get changes from.
 
 if no *upstream* is listed continue with:
 
-* `> git remote add upstream https://github.com/Esri/air-c2-cop`
+* `> git remote add upstream https://github.com/Esri/air-c2-cop-python`
 * `> git remote set-url upstream --push no_push`
 
 check that an *upstream* is registered:
@@ -90,7 +90,7 @@ If you've made changes to the repo that you want to share with the community.
 ### Notes On Contributing
 * Always work in the **dev** branch, never in *master*. This helps us keep our releases clean.
 * Never merge Pull Requests. The [Repository Owner](#repository-owner) needs to test any updates to make sure the repo is stable.
-* Always log an [Issue](https://github.com/Esri/air-c2-cop/issues) for problems you find, though you should check through the existing issues to make sure it wasn't already logged. 
+* Always log an [Issue](https://github.com/Esri/air-c2-cop-python/issues) for problems you find, though you should check through the existing issues to make sure it wasn't already logged. 
 
 
 ## Credits
