@@ -35,23 +35,6 @@ Additional information is available in the repository's [Wiki](https://github.co
 
 ## Instructions To Get Started
 
-
-## Resources
-
-* Learn more about [ArcGIS Solutions](http://solutions.arcgis.com/).
-* Learn more about [ArcGIS for Defense](http://solutions.arcgis.com/defense/).
-* Learn more about [ArcGIS Pro](http://pro.arcgis.com/en/pro-app/).
-
-## Issues
-
-* Find a bug or want to request a new feature?  Please let us know by submitting an issue.
-
-## Contributing
-
-Esri welcomes contributions from anyone and everyone through GitHub. Please see Esri's [guidelines for contributing](https://github.com/esri/contributing).
-
-When you contribute to this repository we ask that you follow the guidelines below. If you've got questions, or you get stuck, please ask the [Repository Owner](#repository-owner). We are here to help! Thanks.
-
 ### Fork and Clone the Repo
 Start contributing to the solutions-geoprocessing-toolbox repo by making a fork and cloning it to your local machine.
 
@@ -77,7 +60,22 @@ The solutions-geoprocessing-toolbox repo changes often, so make sure you are get
 
 * `> git fetch upstream`
 * `> git merge upstream/dev`
-*
+
+## Resources
+
+* Learn more about [ArcGIS Solutions](http://solutions.arcgis.com/).
+* Learn more about [ArcGIS for Defense](http://solutions.arcgis.com/defense/).
+* Learn more about [ArcGIS Pro](http://pro.arcgis.com/en/pro-app/).
+
+## Issues
+
+* Find a bug or want to request a new feature?  Please let us know by submitting an issue.
+
+## Contributing
+
+Esri welcomes contributions from anyone and everyone through GitHub. Please see Esri's [guidelines for contributing](https://github.com/esri/contributing).
+
+When you contribute to this repository we ask that you follow the guidelines below. If you've got questions, or you get stuck, please ask the [Repository Owner](#repository-owner). We are here to help! Thanks.
 
 ### Share Your Mods
 If you've made changes to the repo that you want to share with the community.
@@ -92,9 +90,7 @@ If you've made changes to the repo that you want to share with the community.
 * Never merge Pull Requests. The [Repository Owner](#repository-owner) needs to test any updates to make sure the repo is stable.
 * Always log an [Issue](https://github.com/Esri/air-c2-cop-python/issues) for problems you find, though you should check through the existing issues to make sure it wasn't already logged. 
 
-
 ## Credits
-
 
 ## Licensing
 
