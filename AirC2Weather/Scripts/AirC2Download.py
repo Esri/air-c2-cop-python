@@ -1,10 +1,21 @@
+## Copyright 2016 Esri
+## Licensed under the Apache License, Version 2.0 (the "License");
+## you may not use this file except in compliance with the License.
+## You may obtain a copy of the License at
+## http://www.apache.org/licenses/LICENSE-2.0
+## Unless required by applicable law or agreed to in writing, software
+## distributed under the License is distributed on an "AS IS" BASIS,
+## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+## See the License for the specific language governing permissions and
+## limitations under the License.​
+
 ##Name: Download NOAA data
 ##
 ##Description: Downloads the most up to date data from the NOAA site by getting the present date.
 ##
 ##                Script works as follow;
 ##                    Gets the present time date in UTC
-##                    Uses the OPeNDAP to NetCDF tool from Multidimension Supplimental Tool
+##                    Uses the OPeNDAP to NetCDF tool from Multidimension Supplemental Tool
 ##                    Downloads the specified variables into NetCDF format files and saves them in the relative location, based on where the script file is located.
 ##                    The present data is removed from the Mosaic Dataset
 ##                    The new data is then loaded into the Mosiac Dataset
