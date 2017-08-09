@@ -1,20 +1,21 @@
 # air-c2-cop-python
+
+## This repository is no longer maintained.
+
+### Additional information is available in the repository's [Wiki](https://github.com/Esri/air-c2-cop-python/wiki).
+
 A collection of scripts and files necessary for the creation of the Defense Solutions Air C2 COP project.
 
 The Air Operations Command and Control Common Operating Picture is a gallery of maps and apps for an Air Operations Officer to maintain a common operating picture for command and control. These include a 3D web application built in Web AppBuilder for situational awareness and analysis, an operations dashboard for real-time awareness and decision making, and story map journals to brief pre- and post-action. These applications all reference a central web map and web scene integrated with other real-time data inputs analyzed using GeoEvent Extension.
 
-###Repository Owner: [Joe](https://github.com/joebayles)
+### Repository Owner: [Joe](https://github.com/joebayles)
 
 * Merge Pull Requests
 * Creates Releases and Tags
 * Manages Milestones
 * Manages and Assigns Issues
 
-###Secondary: [Patrick](https://github.com/phill5136)
-
-* Backup when the Owner is away
-
-Additional information is available in the repository's [Wiki](https://github.com/Esri/air-c2-cop-python/wiki).
+### Secondary: [Gigzy](https://github.com/adgiles)
 
 ## Sections
 
