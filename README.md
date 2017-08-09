@@ -1,6 +1,6 @@
 # air-c2-cop-python
 
-## This repository is no longer maintained.
+### This repository is no longer maintained.
 
 ### Additional information is available in the repository's [Wiki](https://github.com/Esri/air-c2-cop-python/wiki).
 
