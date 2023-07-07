@@ -38,7 +38,7 @@ try:
 
   cursor = arcpy.da.SearchCursor(inFC,inFields)
   
-  # Set icon colour to green only change if the response from a weather service is not Favorable
+  # Set icon color to green only change if the response from a weather service is not Favorable
   icon_color = "G"
 
   for row in cursor:
@@ -72,21 +72,21 @@ try:
 
       #process response    
       
-      if response['value'] == "114, 137, 68": #Pixel value colour for Favorable
+      if response['value'] == "114, 137, 68": #Pixel value color for Favorable
           name =  name + "<br /><font size='2'>Impact of Cloud Ceiling on target acquisition is</font><font style='color:lime' size='2'> Favorable.</font>"
           utils.common.OutputMessage(logging.DEBUG, "{0} Impact of Cloud Ceiling on target acquisition in fixed wing aircraft is Favorable".format(time.ctime()))
-      if response['value'] == "215, 173, 96": #Pixel value colour for Marginal
+      if response['value'] == "215, 173, 96": #Pixel value color for Marginal
           name =  name + "<br /><font size='2'>Impact of Cloud Ceiling on target acquisition is</font><font style='color:orange' size='2'> Marginal.</font>"
           utils.common.OutputMessage(logging.DEBUG, "{0} Impact of Cloud Ceiling on target acquisition in fixed wing aircraft is Marginal".format(time.ctime()))
           icon_color = "R"
-      if response['value'] == "191, 55, 42": #Pixel value colour for Unfavorable
+      if response['value'] == "191, 55, 42": #Pixel value color for Unfavorable
           name =  name + "<br /><font size='2'>Impact of Cloud Ceiling on target acquisition is</font><font style='color:red' size='2'> Unfavorable.</font>"
           utils.common.OutputMessage(logging.DEBUG, "{0} Impact of Cloud Ceiling on target acquisition in fixed wing aircraft is Unfavorable".format(time.ctime()))
           icon_color = "R"
     except:
       utils.common.OutputMessage(logging.DEBUG, "{0} An error occured whilst trying to derive the Impact of Cloud Ceiling on target acquisition in fixed wing aircraft".format(time.ctime()))
         
-    #parameters for 'Impact of temperature on Air Defence'
+    #parameters for 'Impact of temperature on Air Defense'
 
     parameters = urllib.urlencode({'geometry': {'x': row[0][0], 'y': row[0][1], "spatialReference": {"wkid": 4326}},'geometryType':'esriGeometryPoint','renderingRule':'{"rasterFunction" :"Air Defense impact of Temperature." }','time': previous3HourInSecondsFromEpoch,'returnGeometry':'false','returnCatalogItems':'false', 'f': 'json'})
 
@@ -99,19 +99,19 @@ try:
       response2 = json.loads(urllib.urlopen(request2).read())
 
       #process response    
-      if response2['value'] == "114, 137, 68": #Pixel value colour for Favorable
-        name =  name + "<br /><font size='2'>Impact of temperature on Air Defence is</font><font style='color:lime' size='2'> Favorable.</font>"
-        utils.common.OutputMessage(logging.DEBUG, "{0} Impact of temperature on Air Defence is Favorable".format(time.ctime()))
-      if response2['value'] == "215, 173, 96": #Pixel value colour for Marginal
-        name =  name + "<br /><font size='2'>Impact of temperature on Air Defence is</font><font style='color:orange' size='2'> Marginal.</font>"
-        utils.common.OutputMessage(logging.DEBUG, "{0} Impact of temperature on Air Defence is Marginal".format(time.ctime()))
+      if response2['value'] == "114, 137, 68": #Pixel value color for Favorable
+        name =  name + "<br /><font size='2'>Impact of temperature on Air Defense is</font><font style='color:lime' size='2'> Favorable.</font>"
+        utils.common.OutputMessage(logging.DEBUG, "{0} Impact of temperature on Air Defense is Favorable".format(time.ctime()))
+      if response2['value'] == "215, 173, 96": #Pixel value color for Marginal
+        name =  name + "<br /><font size='2'>Impact of temperature on Air Defense is</font><font style='color:orange' size='2'> Marginal.</font>"
+        utils.common.OutputMessage(logging.DEBUG, "{0} Impact of temperature on Air Defense is Marginal".format(time.ctime()))
         icon_color = "R"
-      if response2['value'] == "191, 55, 42": #Pixel value colour for Unfavorable
-        name =  name + "<br /><font size='2'>Impact of temperature on Air Defence is</font><font style='color:red' size='2'> Unfavorable.</font>"
-        utils.common.OutputMessage(logging.DEBUG, "{0} Impact of temperature on Air Defence is Unfavorable".format(time.ctime()))
+      if response2['value'] == "191, 55, 42": #Pixel value color for Unfavorable
+        name =  name + "<br /><font size='2'>Impact of temperature on Air Defense is</font><font style='color:red' size='2'> Unfavorable.</font>"
+        utils.common.OutputMessage(logging.DEBUG, "{0} Impact of temperature on Air Defense is Unfavorable".format(time.ctime()))
         icon_color = "R"
     except:
-      utils.common.OutputMessage(logging.DEBUG, "{0} An error occured whilst trying to derive the Impact of temperature on Air Defence".format(time.ctime()))
+      utils.common.OutputMessage(logging.DEBUG, "{0} An error occured whilst trying to derive the Impact of temperature on Air Defense".format(time.ctime()))
         
     description = "<table style=\"width:100%\"><tbody><tr><td style=\"outline: none;\"><font size=\"2\" style=\"outline: none;\"><b>Tasked Country:</b> " + row[2] + "<br><b>Tasked Unit:</b> " + row[3] + "<br> <b>Task Unit Location:</b> " + row[4] + "<br><b>Residual Mission Indicator:</b> " + row[5] + "<br><b>Package ID:</b> " + row[6] + "<br><b>Primary Mission Type:</b> " + row[7] + "<br><b>Secondary Mission Type:</b> " + row[8] + "<br><b>Aircraft Type:</b> " + row[9] + "<br><b>Number of Aircraft:</b>  " + str(row[10]) + "<br><b>Aircraft Callsign:</b> " + row[11] + "<br><b>Primary Configuration:</b> " + row[12] + "<br></font></td><td style=\"outline: none;\"><font size=\"2\"><b>Departure Location:</b> " + row[13] + "<br><b>Recovery Location:</b> " + row[14] + "<br><b>Route:</b> " + row[15] + "<br><b>Ground Target ID:</b> " + row[16] + "<br><b>Ground TargetName:</b> " + row[17] + "<br><b>Ground Target Description:</b> " + row[18] + "<br><b>Ground Target Priority:</b> " + row[19] + "<br><b>GroundTarget Designation</b>: " + row[20] + "<br><b>Ground Target Type:</b>  " + row[21] + "<br><b>Ground Target Time on Target</b>: " + row[22] + "<br></font></td></tr></tbody></table>"
     pic_url = imageFolder +"/" + row[16] + ".jpg"
