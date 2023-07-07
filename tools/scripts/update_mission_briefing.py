@@ -38,7 +38,7 @@ try:
 
   cursor = arcpy.da.SearchCursor(inFC,inFields)
   
-  # Set icon colour to green only change if the response from a weather service is not Favorable
+  # Set icon color to green only change if the response from a weather service is not Favorable
   icon_color = "G"
 
   for row in cursor:
@@ -72,14 +72,14 @@ try:
 
       #process response    
       
-      if response['value'] == "114, 137, 68": #Pixel value colour for Favorable
+      if response['value'] == "114, 137, 68": #Pixel value color for Favorable
           name =  name + "<br /><font size='2'>Impact of Cloud Ceiling on target acquisition is</font><font style='color:lime' size='2'> Favorable.</font>"
           utils.common.OutputMessage(logging.DEBUG, "{0} Impact of Cloud Ceiling on target acquisition in fixed wing aircraft is Favorable".format(time.ctime()))
-      if response['value'] == "215, 173, 96": #Pixel value colour for Marginal
+      if response['value'] == "215, 173, 96": #Pixel value color for Marginal
           name =  name + "<br /><font size='2'>Impact of Cloud Ceiling on target acquisition is</font><font style='color:orange' size='2'> Marginal.</font>"
           utils.common.OutputMessage(logging.DEBUG, "{0} Impact of Cloud Ceiling on target acquisition in fixed wing aircraft is Marginal".format(time.ctime()))
           icon_color = "R"
-      if response['value'] == "191, 55, 42": #Pixel value colour for Unfavorable
+      if response['value'] == "191, 55, 42": #Pixel value color for Unfavorable
           name =  name + "<br /><font size='2'>Impact of Cloud Ceiling on target acquisition is</font><font style='color:red' size='2'> Unfavorable.</font>"
           utils.common.OutputMessage(logging.DEBUG, "{0} Impact of Cloud Ceiling on target acquisition in fixed wing aircraft is Unfavorable".format(time.ctime()))
           icon_color = "R"
@@ -99,14 +99,14 @@ try:
       response2 = json.loads(urllib.urlopen(request2).read())
 
       #process response    
-      if response2['value'] == "114, 137, 68": #Pixel value colour for Favorable
+      if response2['value'] == "114, 137, 68": #Pixel value color for Favorable
         name =  name + "<br /><font size='2'>Impact of temperature on Air Defence is</font><font style='color:lime' size='2'> Favorable.</font>"
         utils.common.OutputMessage(logging.DEBUG, "{0} Impact of temperature on Air Defence is Favorable".format(time.ctime()))
-      if response2['value'] == "215, 173, 96": #Pixel value colour for Marginal
+      if response2['value'] == "215, 173, 96": #Pixel value color for Marginal
         name =  name + "<br /><font size='2'>Impact of temperature on Air Defence is</font><font style='color:orange' size='2'> Marginal.</font>"
         utils.common.OutputMessage(logging.DEBUG, "{0} Impact of temperature on Air Defence is Marginal".format(time.ctime()))
         icon_color = "R"
-      if response2['value'] == "191, 55, 42": #Pixel value colour for Unfavorable
+      if response2['value'] == "191, 55, 42": #Pixel value color for Unfavorable
         name =  name + "<br /><font size='2'>Impact of temperature on Air Defence is</font><font style='color:red' size='2'> Unfavorable.</font>"
         utils.common.OutputMessage(logging.DEBUG, "{0} Impact of temperature on Air Defence is Unfavorable".format(time.ctime()))
         icon_color = "R"
